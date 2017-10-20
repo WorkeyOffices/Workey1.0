@@ -1,0 +1,230 @@
+extends ./layoutindexx.jade
+block contenido
+	section#encontrador
+		form(style="text-align:center;"  id="sear" name="sear", action='/filtross', method='POST', label='')
+			div
+				input(placeholder="UBICACIÓN" type="search" id="buscain" name="buscain" list="datos")
+				datalist(id="datos" required)
+					option(value="Oficina Privada" ) 
+					option(value="Escritorio compartido" )
+					option(value="Escritorio dedicado" )
+					option(value="Auditorio")
+					option(value="sala de Juntas" )
+					option(value="Usaquen")
+					option(value="Chapinero")
+					option(value="Santa Fe")
+					option(value="San Cristóbal")
+					option(value="Usme")
+					option(value="Tunjuelito")
+					option(value="Bosa")
+					option(value="bogota")
+					option(value="Kennedy")
+					option(value="Fontibon")
+					option(value="Engativa")
+					option(value="Suba")
+					option(value="Barrios Unidos")
+					option(value="Teusaquillo")
+					option(value="Los Martires") 
+					option(value="Antonio Nariño")
+					option(value="Puente Aranda")
+					option(value="La Candelaria")
+					option(value="Rafael Uribe Uribe")
+					option(value="Ciudad Bolivar")
+					option(value="Sumapaz")
+			div
+				select(type="text", name="tipoin", placeho der="es local ", id="tipoin", class"form-control")
+					option(value="privada" selected="Privadada") Oficina Privada
+					option(value="Compratido" selected="Compratido") Escritorio Compratido
+					option(value="Dedicado" selected="Dedicado") Escitorio Dedicado
+					option(value="Auditorio" selected="Auditorio") Auditorio
+					option(value="Sala" selected="Sala") Sala de juntas
+					option(value="" selected="selected" style="display:none;") Tipo de epacio	
+			div
+				select(type="text", name="preriodin", placeho der="es local ", id="preriodin", class"form-control")
+					option(value="Hora" selected="Hora") Hora
+					option(value="Dia" selected="dia") Dia
+					option(value="Semana" selected="semana") Semana
+					option(value="Mes" selected="mes") Mes
+					option(value="Año" selected="ano") Año
+					option(value="" selected="" style="display:none;") Periodo
+			div
+				select(type="text" name="rangoin" id="rangoin" class="rangoin")
+					option(value="0a5" selected="Hora") de $ 0 a $ 500.000 pesos 
+					option(value="5a10" selected="dia") de $ 500.001 a $ 1.000.000 
+					option(value="10a25" selected="semana") de $ 1.000.001 a $ 2.500.000
+					option(value="25a50" selected="mes") de $ 2.500.001 a $ 5.000.000
+					option(value="mas50" selected="ano") Más $ 5.000.000
+					option(value="" selected="" style="display:none;") Rango precios
+				div
+					input.imputts(value='Buscar', type='submit')
+	.containers
+			for imagen in imagenes
+				if imagen.Localidad == filtro[2]
+					if imagen.tipo == filtro[3]
+						if imagen.preriodo == filtro[4] || imagen.preriodo1 == filtro[4] || imagen.preriodo2 == filtro[4] || imagen.preriodo3 == filtro[4]
+							div(class="ubicacion2")
+								img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+								a(href="/detalle/#{imagen._id}" class="ordenado")
+									p=imagen.dlugar
+									p="$"+imagen.precio1+"/"+imagen.preriodo1
+						else 
+							if "0a5" == filtro[4]
+									if imagen.precio <= 500000
+										div(class="ubicacion2")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											a(href="/detalle/#{imagen._id}" class="ordenado")
+												p=imagen.dlugar
+												p="$"+imagen.precio1+"/"+imagen.preriodo1
+							else if "5a10"
+									if imagen.precio >= 500000 && imagen.precio <= 1000000
+										div(class="ubicacion2")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											a(href="/detalle/#{imagen._id}" class="ordenado")
+												p=imagen.dlugar
+												p="$"+imagen.precio1+"/"+imagen.preriodo1
+							else if "10a25"
+									if imagen.precio >= 1000000 && imagen.precio <= 2500000
+										div(class="ubicacion2")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											a(href="/detalle/#{imagen._id}" class="ordenado")
+												p=imagen.dlugar
+												p="$"+imagen.precio1+"/"+imagen.preriodo1
+							else if "25a50"
+									if imagen.precio >= 2500000 && imagen.precio <= 5000000
+										div(class="ubicacion2")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											a(href="/detalle/#{imagen._id}" class="ordenado")
+												p=imagen.dlugar
+												p="$"+imagen.precio1+"/"+imagen.preriodo1
+							else if "mas50"
+									if imagen.precio >= 5000000
+										div(class="ubicacion2")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											a(href="/detalle/#{imagen._id}" class="ordenado")
+												p=imagen.dlugar
+												p="$"+imagen.precio1+"/"+imagen.preriodo1
+					else if imagen.preriodo == filtro[3] || imagen.preriodo1 == filtro[3] || imagen.preriodo2 == filtro[3] || imagen.preriodo3 == filtro[3]
+						if "0a5" == filtro[4]
+								if imagen.precio <= 500000
+									div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+						else if "5a10"
+								if imagen.precio >= 500000 && imagen.precio <= 1000000
+									div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+						else if "10a25"
+								if imagen.precio >= 1000000 && imagen.precio <= 2500000
+									div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+						else if "25a50"
+								if imagen.precio >= 2500000 && imagen.precio <= 5000000
+									div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+						else if "mas50"
+								if imagen.precio >= 5000000
+									div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+				else if imagen.tipo == filtro[2]
+					if imagen.preriodo == filtro[3] || imagen.preriodo1 == filtro[3] || imagen.preriodo2 == filtro || imagen.preriodo3 == filtro[3]
+						if "0a5" == filtro[4]
+								if imagen.precio <= 500000
+									div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+						else if "5a10"
+								if imagen.precio >= 500000 && imagen.precio <= 1000000
+									div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+						else if "10a25"
+								if imagen.precio >= 1000000 && imagen.precio <= 2500000
+									div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+						else if "25a50"
+								if imagen.precio >= 2500000 && imagen.precio <= 5000000
+									div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+						else if "mas50"
+								if imagen.precio >= 5000000
+									div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1	
+			div(id="nobus" class="nobus")
+			div(id="sibus" class="sibus")
+			div
+					.overlay-container
+						.window-container.zoomout
+							.sesions
+								p(style="color:#fff;" id="creacu" ) Contacto
+									span(class="close") X
+								form(action="envio3", method="POST", id="for" class="for")
+												div(class="form-group" style="")
+													label(for="name") Nombre completo
+													input(type="text", name="name", placeholder="nombre", id="name", class"form-control")
+												div 
+													label(for="correo2") Correo
+													input(type="text", name="correo2", placeholder="Correo", id="correo2", class"form-control")
+												div 
+													label(for="tel") Telefono
+													input(type="text", name="tel", placeholder="Telefono", id="tel", class"form-control")
+												div 
+													label(for="asunto") Asunto
+													select(type="text", name="asunto", placehoder="", id="asunto", class"form-control") 
+														option(value="Busco"  selected=" Busco") Busco oficina  
+														option(value="Publicar"  selected="Publicar") Publicar oficina
+														option(value="Otro"  selected="Otro")  Otro
+														option(value=""  selected="" style="display:none;")  --Selecciona--
+												div 
+													label(for="mess") Mensaje
+													input(type="text", name="mess", placeholder="", id="mess", class"form-control" style="width:100%; height:100px;")
+												div 
+													input(type="submit" value="Enviar" id="send" clas="send")
+													span(class="close") Cancelar
+						.window-container.zoomin
+							.sesions
+								p(style="color:#fff;" id="creacu" ) Ingresar
+									span(class="close") X
+								form(action="session", method="POST", id="for" class="for")
+									div(class="form-group" style="padding-top: 30px; ")
+										label(for="email") Correo
+										input(type="text", name="email", placeholder="Email", id="email", class"form-control")
+									div 
+										label(for="password") Contraseña
+										input(type="password", name="password",placeholder="Contrasña", id="password" class"form-control" )
+									div 
+										input(type="submit" value="Ingresar" id="send" clas="send")
+									div
+										p(style="padding-left: 25%") Nuevo en workey? 
+												input.rrs(value='Crea una cuenta' data-type="rrr")
+script(type='text/javascript', src='../../public/js/bootstrap.js')
+script(type='text/javascript', src='../../public/js/bootstrap.min.js')
+script(type='text/javascript', src='../../public/js/jquery.min.js')
+script(type='text/javascript', src='../../public/js/jquery.min.v1.js')
+script(type='text/javascript', src='../../public/js/cambio.js')

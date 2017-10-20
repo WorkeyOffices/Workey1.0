@@ -1,0 +1,181 @@
+extends ./layoutindexx.jade
+block contenido
+	section#encontrador
+		form(action='/filtross', method='POST', label='' style="text-align:center;"  id="sear" name="sear")
+			div
+				input(placeholder="UBICACIÓN" type="search" id="buscain" name="buscain" list="datos")
+				datalist(id="datos" required)
+					option(value="Oficina Privada" ) 
+					option(value="Escritorio compartido" )
+					option(value="Escritorio dedicado" )
+					option(value="Auditorio")
+					option(value="sala de Juntas" )
+					option(value="Usaquen")
+					option(value="Chapinero")
+					option(value="Santa Fe")
+					option(value="San Cristóbal")
+					option(value="Usme")
+					option(value="Tunjuelito")
+					option(value="Bosa")
+					option(value="bogota")
+					option(value="Kennedy")
+					option(value="Fontibon")
+					option(value="Engativa")
+					option(value="Suba")
+					option(value="Barrios Unidos")
+					option(value="Teusaquillo")
+					option(value="Los Martires") 
+					option(value="Antonio Nariño")
+					option(value="Puente Aranda")
+					option(value="La Candelaria")
+					option(value="Rafael Uribe Uribe")
+					option(value="Ciudad Bolivar")
+					option(value="Sumapaz")
+			div
+				select(type="text", name="tipoin", placeho der="es local ", id="tipoin", class"form-control")
+					option(value="privada" selected="Privadada") Oficina Privada
+					option(value="Compratido" selected="Compratido") Escritorio Compratido
+					option(value="Dedicado" selected="Dedicado") Escitorio Dedicado
+					option(value="Auditorio" selected="Auditorio") Auditorio
+					option(value="Sala" selected="Sala") Sala de juntas
+					option(value="" selected="selected" style="display:none;") Tipo de epacio	
+			div
+				select(type="text", name="preriodin", placeho der="es local ", id="preriodin", class"form-control")
+					option(value="Hora" selected="Hora") Hora
+					option(value="Dia" selected="dia") Dia
+					option(value="Semana" selected="semana") Semana
+					option(value="Mes" selected="mes") Mes
+					option(value="Año" selected="ano") Año
+					option(value="" selected="" style="display:none;") Periodo
+			div
+				select(type="text" name="rangoin" id="rangoin" class="rangoin")
+					option(value="0a5" selected="Hora") de $ 0 a $ 500.000 pesos 
+					option(value="5a10" selected="dia") de $ 500.001 a $ 1.000.000 
+					option(value="10a25" selected="semana") de $ 1.000.001 a $ 2.500.000
+					option(value="25a50" selected="mes") de $ 2.500.001 a $ 5.000.000
+					option(value="mas50" selected="ano") Más $ 5.000.000
+					option(value="" selected="" style="display:none;") Rango precios
+				div
+					input.imputts(value='Buscar', type='submit')
+	.containers
+			for imagen in imagenes
+				if imagen.Localidad == filtro
+								div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+				else if imagen.tipo == filtro
+								div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+									break
+				else if imagen.preriodo == filtro & imagen.preriodo1 == filtro & imagen.preriodo2 == filtro & imagen.preriodo3 == filtro 
+								div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+									break
+				else if imagen.precio == filtro
+								div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+				else if "bogota" == filtro
+								div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+				else
+								div(class="ubicacion2")
+										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
+			div(id="sibus" class="sibus")
+			div(id="nobus" class="nobus")
+	div
+					.overlay-container
+						.window-container.zoomout
+							.sesions
+								p(style="color:#fff;" id="creacu" ) Contacto
+									span(class="close") X
+								form(action="envio3", method="POST", id="for" class="for")
+												div(class="form-group" style="")
+													label(for="name") Nombre completo
+													input(type="text", name="name", placeholder="nombre", id="name", class"form-control")
+												div 
+													label(for="correo2") Correo
+													input(type="text", name="correo2", placeholder="Correo", id="correo2", class"form-control")
+												div 
+													label(for="tel") Telefono
+													input(type="text", name="tel", placeholder="Telefono", id="tel", class"form-control")
+												div 
+													label(for="asunto") Asunto
+													select(type="text", name="asunto", placehoder="", id="asunto", class"form-control") 
+														option(value="Busco"  selected=" Busco") Busco oficina  
+														option(value="Publicar"  selected="Publicar") Publicar oficina
+														option(value="Otro"  selected="Otro")  Otro
+														option(value=""  selected="" style="display:none;")  --Selecciona--
+												div 
+													label(for="mess") Mensaje
+													textarea(type="text", name="mess", placeholder="", id="mess", class"form-control" style="width:100%; height:100px; background-color:#E8E8E8;")
+												div 
+													input(type="submit" value="Enviar" id="send" clas="send")
+													span(class="close") Cancelar
+						.window-container.zoomin
+							.sesions
+								p(style="color:#fff;" id="creacu" ) Ingresar
+									span(class="close") X
+								form(action="session", method="POST", id="for" class="for")
+									div(class="form-group" style="padding-top: 30px; ")
+										label(for="email") Correo
+										input(type="text", name="email", placeholder="Email", id="email", class"form-control")
+									div 
+										label(for="password") Contraseña
+										input(type="password", name="password",placeholder="Contrasña", id="password" class"form-control" )
+									div 
+										input(type="submit" value="Ingresar" id="send" clas="send")
+									div
+										p(style="padding-left: 25%") Nuevo en workey? 
+												input.rrs(value='Crea una cuenta' data-type="rrr")
+					.overlay-container2
+						.window-container2.rrr
+							.sesions
+								p(style="color:#fff;" id="creacu" ) INSCRIBIRSE
+									span(class="close") X
+								form(action="users", method="POST"  name="fors" id="fors" class="fors")
+									div(class="form-group")
+										label(for="email") Email 
+										input(type="email", name="email", placeholder="Email", id="email", class"form-control" title="por el correo" required) 
+									div 
+										label(for="username") Nombre Completo
+										input(type="text", name="username",placeholder="Dime tu username", id="username" class"form-control"  required)
+									div 
+										label(for="password")  Contraseña
+										input(type="password", name="password",placeholder="Contraseña", id="password" class"form-control" required )
+									div 
+										label(for="password") Confirma tu Contraseña
+										input(type="password", name="password_confirmation",placeholder="Confirma Contraseña", id="password" class"form-control" required)
+									div 
+										label(for="telefono") telefono
+										input(type="text", name="telefono",placeholder="Dime tu Telefono", id="telefono" class"form-control"  required)
+									div 
+										label(for="nit") Cedula o NIT
+										input(type="text", name="nit",placeholder="Dime tu nit o tu cc", id="nit" class"form-control",  required, onchange="val()")
+									div(style="display:none;") 
+										label(for="subirinfo")
+										input(type="text", name="subirinfo",id="subirinfo" value="true")
+									div 
+										input(type="submit" value="INSCRIBIRSE" class="btn btn-info" id="send" clas="send")
+
+	script(type='text/javascript', src='../../public/js/bootstrap.js')
+		script(type='text/javascript', src='../../public/js/bootstrap.min.js')
+		script(type='text/javascript', src='../../public/js/jquery.min.js')
+		script(type='text/javascript', src='../../public/js/jquery.min.v1.js')
+		script(type='text/javascript', src='/public/js/cambio.js')

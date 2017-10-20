@@ -1,0 +1,65 @@
+extends ./imagenes/layout2.jade
+block contenido 
+		.coreccion
+				.arriba
+					.divicion(style="text-align: center;" )
+							h2 Tus Datos
+							p Hola #{user.username} estos son los datos que tienes registrados 
+							p Telefono: #{user.telefono} 
+							p Email: #{user.email}
+							p  nit : #{user.nit}
+		.containers(style="text-align: center;" )
+					h2 Tus Oficinas
+				for imagen in imagenes
+					if filtro == imagen.creator._id
+									div(class="ubicacion2")
+										if imagen.extension != "noesta"
+												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+										if imagen.extension1 != "noesta"
+												img(src="/public/imagenes/#{imagen._id}s.#{imagen.extension1}")
+										if imagen.extension2 != "noesta"
+												img(src="/public/imagenes/#{imagen._id}t.#{imagen.extension2}")
+										if imagen.extension3 != "noesta"
+												img(src="/public/imagenes/#{imagen._id}u.#{imagen.extension3}")
+										if imagen.extension4 != "noesta"
+												img(src="/public/imagenes/#{imagen._id}v.#{imagen.extension4}")
+										div
+												a(href="/app/imagenes/#{imagen._id}/edit") Editar
+												a(href="/detalle/#{imagen._id}" class="ordenado")
+													p ver oficina
+		script(type='text/javascript', src='/public/js/jquery.min.v1.js')
+			script(type='text/javascript', src='/public/js/bootstrap.min.js')
+			script(src='/public/slick/slick.min.js', type='text/javascript', charset='utf-8')
+			script(type='text/javascript').
+				$(document).on('ready', function() {
+				$('.one-time').slick({
+				dots: true,
+				infinite: true,
+				speed: 900,
+				slidesToShow: 1,
+				adaptiveHeight: true,
+				fade:true,
+				autoplay: true,
+				autoplaySpeed: 9900,
+				});
+				$('.slider-for').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: false,
+				fade: true,
+				asNavFor: '.slider-nav',
+				centerMode: true, focusOnSelect: true,autoplay: true, autoplaySpeed: 45000, });
+				$('.slider-nav').slick({
+				slidesToShow: 4,slidesToScroll: 1,
+				asNavFor: '.slider-for',centerMode: false,
+				focusOnSelect: true
+				});
+				$('.single-item').slick();
+				});
+
+			script(type='text/javascript').
+				twttr.widgets.createTimeline({
+				sourceType: "profile",
+				screenName: "fabric"
+				}, document.getElementById("container"))		
+script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
