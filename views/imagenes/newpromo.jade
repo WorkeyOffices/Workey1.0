@@ -15,15 +15,15 @@ html(lang="es")
 						.picture(style="margin-bottom:4px;")
 								a(href='/' )
 									img(src='/public/imagenes/img/logos-01.png')
-								ul.nav.navbar-nav.navbar-right(style="padding-left: 40%")
+								ul.nav.navbar-nav.navbar-right(style="padding-left: 30%")
 									li
 										input.button(value='Contacto' data-type="zoomout")
 									li
 										input.button(value='Ingresar', data-type='zoomin' style="display:none;")
 									li
-										a.buttons(href="/iniciado/#{user.username}/#{user.id}" data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' style="border: none; padding: 1px 1px 1px 1px; margin-top: 29px; font-size: 20px; cursor: pointer; margin-left: 30px; text-decoration: none;") #{user.username}
+										a.buttons(href="/iniciado/#{user.username}/#{user.id}" data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' style="border: none; padding: 1px 1px 1px 1px; margin-top: 29px; font-size: 17px; cursor: pointer; margin-left: 30px; text-decoration: none;") #{user.username}
 									li.dropdown
-										a.buttons(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' style="border: none; padding: 1px 1px 1px 1px; margin-top: 29px; font-size: 20px; cursor: pointer; margin-left: 30px; text-decoration: none;") Editar perfil
+										a.buttons(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' style="border: none; padding: 1px 1px 1px 1px; margin-top: 29px; font-size: 17px; cursor: pointer; margin-left: 30px; text-decoration: none;") Editar perfil
 											span.caret
 										ul.dropdown-menu
 											li
@@ -49,29 +49,32 @@ html(lang="es")
 								input(type="text", name="imgs13", placeholder="Titulo de la imagen ", id="imgs13", class"form-control" value="1" style="display:none;")
 								input(type="text", name="imgs14", placeholder="Titulo de la imagen ", id="imgs14", class"form-control" value="1" style="display:none;")
 							div.fotografias#Fotografias
-								div
-									h3 Subir Fotografias
-								div
+
+								div(style="width: 100%; ")
+											h3 Subir Fotografias
+								div(style="width: 50%;")
 									input#upload.upload(  value='', accept='image/*', type='file'  required onchange="cargaaa()" style="display:none;" )
 									label(for="upload")
-										img(id="imgs" name="imgs" src="/public/imagenes/img/icon/icon.png" style=" max-width: 200px;")
-								div.fotografias#Fotografias
-										div(style=" width: 100%;")
-											input#upload1.upload1( value='', accept='image/*', type='file'  onchange="cargaaa1()" style="display:none;")
-											label(for="upload1")
-												img(id="imgs1" name="imgs1" src="/public/imagenes/img/icon/icon.png" style=" max-width: 100px;")
-										div
-											input#upload2.upload2( value='', accept='image/*', type='file'  onchange="cargaaa2()" style="display:none;")
-											label(for="upload2")
-												img(id="imgs2" name="imgs2" src="/public/imagenes/img/icon/icon.png" style=" max-width: 100px;")
-										div
-											input#upload3.upload3( value='', accept='image/*', type='file'  onchange="cargaaa3()" style="display:none;")
-											label(for="upload3")
-												img(id="imgs3" name="imgs3" src="/public/imagenes/img/icon/icon.png" style=" max-width: 100px;")
-										div
-											input#upload4.upload4( value='', accept='image/*', type='file'  onchange="cargaaa4()" style="display:none;")
-											label(for="upload4")
-												img(id="imgs4" name="imgs4" src="/public/imagenes/img/icon/icon.png" style=" max-width: 100px;")
+										img(id="imgs" name="imgs" src="/public/imagenes/img/icon/icon.png" style=" max-width: 195px ; height: 169px;" )
+									div.fotografias#Fotografias(style="width: 50%; margin-left:50px;")
+											div(style="width: auto;")
+												input#upload1.upload1( value='', accept='image/*', type='file'  onchange="cargaaa1()" style="display:none;")
+												label(for="upload1")
+													img(id="imgs1" name="imgs1" src="/public/imagenes/img/icon/icon.png" style=" width: 100px; height: 85px;")
+											div(style="width: auto;")
+												input#upload2.upload2( value='', accept='image/*', type='file'  onchange="cargaaa2()" style="display:none;")
+												label(for="upload2")
+													img(id="imgs2" name="imgs2" src="/public/imagenes/img/icon/icon.png" style=" width: 100px; height: 85px;")
+									div.fotografias#Fotografias(style="width: 50%; margin-left:4px;")
+											div(style="width: auto;")
+												input#upload3.upload3( value='', accept='image/*', type='file'  onchange="cargaaa3()" style="display:none;")
+												label(for="upload3")
+													img(id="imgs3" name="imgs3" src="/public/imagenes/img/icon/icon.png" style=" max-width: 100px; height: 85px;")
+											div(style="width: auto;")
+												input#upload4.upload4( value='', accept='image/*', type='file'  onchange="cargaaa4()" style="display:none;")
+												label(for="upload4")
+													img(id="imgs4" name="imgs4" src="/public/imagenes/img/icon/icon.png" style=" max-width: 100px; height: 85px;")
+
 							div.datoses#datoses
 								div
 									h3 Datos del espacio
@@ -99,65 +102,66 @@ html(lang="es")
 																	option(value="Rafael Uribe Uribe 	")
 																	option(value="Ciudad Bolívar")
 																	option(value="Sumapaz")
-								div
-									input(type="text", name="dir", placeholder="Direccion", id="dir", class"form-control" value=""  required autocomplete="off" )
-								div
-									select(type="text", name="tipo", placeho der="es local ", id="tipo", class"form-control" style="width: auto;" required autocomplete="off" )
+								
+									input(type="text", name="dir", placeholder="Direccion", id="dir", class"form-control" value=""  required autocomplete="off" style=" margin-left: 15px;" )
+								div(style="margin-top:7px;")
+									select(type="text", name="tipo", placeho der="es local ", id="tipo", class"form-control" style="width: 44%;" required autocomplete="off" )
 										option(value="privada" selected="Privadada") Oficina Privada
 										option(value="Compratido" selected="Compratido") Escritorio Compratido
 										option(value="Dedicado" selected="Dedicado") Escitorio Dedicado
 										option(value="Auditorio" selected="Auditorio") Auditorio
 										option(value="Sala" selected="Sala") Sala de juntas
 										option(value="" selected="selected") -Tipo de espacio-
-								div
-									input(type="text", name="precio", placeholder="precio", id="precio", class"form-control" required autocomplete="off" )
-									select(type="text", name="preriodo", placeho der="es local ", id="preriodo", class"form-control" style="width: auto;")
+								div(style="margin-top:7px; ")
+									select(type="text", name="preriodo", placeho der="es local ", id="preriodo", class"form-control" style="width: 44% ; " )
 										option(value="Hora" selected="Hora") Hora
 										option(value="Dia" selected="dia") Dia
 										option(value="Semana" selected="semana") Semana
 										option(value="Mes" selected="mes") Mes
 										option(value="Año" selected="ano") Año
 										option(value="" selected="selected") - periodo -
+									input(type="text", name="precio", placeholder="precio", id="precio", class"form-control" required autocomplete="off"  style="margin-left: 15px;")
 									a(id="adi" name="adi" onclick="mas()") + 
-								div(id="mas1" name="mas1" class="mas1" style="display:none;")
-									input(type="text", name="precio1", placeholder="precio", id="precio1", class"form-control" required autocomplete="off"  )
-									select(type="text", name="preriodo1", placeho der="es local ", id="preriodo1", class"form-control" style="width: auto;" )
+
+								div(id="mas1" name="mas1" class="mas1" style="display:none; margin-top:7px;")
+									select(type="text", name="preriodo1", placeho der="es local ", id="preriodo1", class"form-control" style="width: 44%; "  )
 										option(value="Hora" selected="Hora") Hora
 										option(value="Dia" selected="dia") Dia
 										option(value="Semana" selected="semana") Semana
 										option(value="Mes" selected="mes") Mes
 										option(value="Año" selected="ano") Año
 										option(value="" selected="selected") - periodo -
+									input(type="text", name="precio1", placeholder="precio", id="precio1", class"form-control" required autocomplete="off" style="margin-left: 15px;" )
 									a(id="adi" name="adi" onclick="mas2()") + 
-								div(id="mas2" name="mas2" class="mas2" style="display:none;")
-									input(type="text", name="precio2", placeholder="precio", id="precio2", class"form-control" autocomplete="off"  )
-									select(type="text", name="preriodo2", placeho der="es local ", id="preriodo2", class"form-control" style="width: auto;")
+								div(id="mas2" name="mas2" class="mas2" style="display:none; margin-top:7px;")
+									select(type="text", name="preriodo2", placeho der="es local ", id="preriodo2", class"form-control" style="width: 44%; " )
 										option(value="Hora" selected="Hora") Hora
 										option(value="Dia" selected="dia") Dia
 										option(value="Semana" selected="semana") Semana
 										option(value="Mes" selected="mes") Mes
 										option(value="Año" selected="ano") Año
 										option(value="" selected="selected") - periodo -
+									input(type="text", name="precio2", placeholder="precio", id="precio2", class"form-control" autocomplete="off" style="margin-left: 15px;" )
 									a(id="adi" name="adi" onclick="mas3()") + 
-								div(id="mas3" name="mas3" class="mas3" style="display:none;")
-									input(type="text", name="precio3", placeholder="precio", id="precio3", class"form-control" autocomplete="off"  )
-									select(type="text", name="preriodo3", placeho der="es local ", id="preriodo3", class"form-control" style="width: auto;")
+								div(id="mas3" name="mas3" class="mas3" style="display:none; margin-top:7px;")
+									select(type="text", name="preriodo3", placeho der="es local ", id="preriodo3", class"form-control" style="width: 44%; " )
 										option(value="Hora" selected="Hora") Hora
 										option(value="Dia" selected="dia") Dia
 										option(value="Semana" selected="semana") Semana
 										option(value="Mes" selected="mes") Mes
 										option(value="Año" selected="ano") Año
 										option(value="" selected="selected") - periodo -
+									input(type="text", name="precio3", placeholder="precio", id="precio3", class"form-control" autocomplete="off"  style=" margin-left: 15px;")
 									a(id="adi" name="adi" onclick="mas4()") + 
-								div(id="mas4" name="mas4" class="mas4" style="display:none;")
-									input(type="text", name="precio4", placeholder="precio", id="precio4", class"form-control" autocomplete="off"  )
-									select(type="text", name="preriodo4", placeho der="es local ", id="preriodo4", class"form-control" style="width: auto;")
+								div(id="mas4" name="mas4" class="mas4" style="display:none; margin-top:7px;")
+									select(type="text", name="preriodo4", placeho der="es local ", id="preriodo4", class"form-control" style="width: 44%; " )
 										option(value="Hora" selected="Hora") Hora
 										option(value="Dia" selected="dia") Dia
 										option(value="Semana" selected="semana") Semana
 										option(value="Mes" selected="mes") Mes
 										option(value="Año" selected="ano") Año
 										option(value="" selected="selected") - periodo -
+									input(type="text", name="precio4", placeholder="precio", id="precio4", class"form-control" autocomplete="off"  style ="margin-left: 15px;")
 						.risponsive
 								textarea(type="text", rows="1" cols="1" name="dlugar", placeholder="Descripcion del lugar.", id="dlugar", class"form-control" value=""  required )
 						div
@@ -168,7 +172,7 @@ html(lang="es")
 									label(for="radio1")
 										img(src="/public/imagenes/img/icon/Iconos-13.png")
 										|  Internet
-									input(class ="radiobu" type="checkbox", name="radio1", id="radio1", class"form-control") 	
+									input(class ="radiobu" type="checkbox", name="radio1", id="radio1", class"form-control") 
 								div
 									label(for="radio6")
 										img(src="/public/imagenes/img/icon/Iconos-15.png")
@@ -212,63 +216,63 @@ html(lang="es")
 								div
 									label(for="radio5")
 										img(src="/public/imagenes/img/icon/Iconos-12.png")
-									label(for="radio5") Cantidad de personas
-									input(type="number", name="radio5", id="radio5", class"form-control" style="width: 70px;" max="99") 
+										| Numero personas
+									input(type="number", name="radio5", id="radio5", class"form-control" style="width: 70px;" max="99 margin-top: -20px;" ) 
 
 						div
 							h2 Generales
 						div(style="width: 100%; margin: 30px; display: flex;")
-							div.fotografias#Fotografias
-								div
+							div.fotografias#Fotografias(style="width: 50%;")
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio11", id="radio11", class"form-control") 
 									label(for="radio11")  Cocina
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio12", id="radio12", class"form-control") 
 									label(for="radio12")  Recepcion
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio13", id="radio13", class"form-control") 
 									label(for="radio13")  Sala de juntas
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio14", id="radio14", class"form-control") 
 									label(for="radio14")  Impresora
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio15", id="radio15", class"form-control") 
 									label(for="radio15")  Parqueadero
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio17", id="radio17", class"form-control") 
 									label(for="radio17")  Espacios compartidos
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio18", id="radio18", class"form-control") 
 									label(for="radio18")  Discapacitados
-							div.fotografias#Fotografias
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio19", id="radio19", class"form-control") 
 									label(for="radio19")  Bicicletero
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio27", id="radio27", class"form-control") 
 									label(for="radio27")  Catering
-								div
+							div.fotografias#Fotografias(style="width: 50%;")
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio20", id="radio20", class"form-control") 
 									label(for="radio20")  Cafe
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio21", id="radio21", class"form-control") 
 									label(for="radio21")  Agua
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio22", id="radio22", class"form-control") 
 									label(for="radio22")  Servicio Correo
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio23", id="radio23", class"form-control") 
 									label(for="radio23")  Restaurante
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio24", id="radio24", class"form-control") 
 									label(for="radio24")  Pet friendly
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio25", id="radio25", class"form-control") 
 									label(for="radio25")  Proyector
-								div
+								div(style="margin: 7px;")
 									input(type="checkbox", name="radio26", id="radio26", class"form-control") 
 									label(for="radio26")  Bodega/almacenamiento
-								div
+								div(style="margin: 7px;")
 									input(type="text", name="radio16", id="radio16", class"form-control" autocomplete="off") 
 									label(for="radio16")  Horarios
 						div

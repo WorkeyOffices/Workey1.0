@@ -10,13 +10,16 @@
 	z-index: 10;
 
 }
-
+body{
+	line-height:normal;
+}
 
 /*popup*/
 
 @import url(https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet);
 p,h1,h2,label,h3,li,input{
 	font-family: 'Raleway', sans-serif;
+
 }
 
 a{
@@ -38,7 +41,6 @@ a:visited{
 	}
 #adi{
 		color: #999;
-		border: solid;
 		font-size: 15px;
 		margin-left: 15px;
 		width: 5px;
@@ -77,9 +79,9 @@ input.rrs {
 		color: #666;
 		border: none;
 		padding: 1px 1px 1px 1px;
-		margin-top: 27px;
+		margin-top: 29px;
 		text-decoration-color: #666;
-		font-size: 20px;
+		font-size: 17px;
 		cursor: pointer;
 		background-color: #fff;
 		width: 100px;
@@ -322,11 +324,26 @@ input.rrs {
 					float: initial;
 					margin: 0px 0px 0px 0px;
 					height: auto;
-					width: 60%;
+					width: 48%;
 					font-size: 15px;
 					box-decoration-break: none;
 					box-shadow: none;
 				}
+	#datoses > div > input,select{
+					float: left;
+					background-color: #fff;
+					border:  1px solid #A2A2A2;
+					padding: 3px;
+					float: initial;
+					margin: 0px 0px 0px 0px;
+					height: auto;
+					width: 44%;
+					font-size: 20px;
+					box-decoration-break: none;
+					box-shadow: none;
+				}
+
+
 /*selector de busqueda*/
 #busss,#enlis{
 					background-color: #999;
@@ -685,25 +702,25 @@ text-align: center;
 	width: 40%;
 	position: relative;
 	display: block;
-
+	padding-left: 2%;
 }
 #Fotografias > div{
 	display:inline-flex;
-	width: 100%;
+	width: 40%;
 	margin: auto;
 	padding: auto;
 	position: relative;
 }
 #Fotografias > h3{
 	width: 100%;
-	position: relative;
+	position: absolute;
 	margin: 30px;
 }
 #datoses{
-	width: 40%;
+	width: 100%;
 	display: inline;
 	position: relative;
-	padding-left:  10%;
+	padding-left:  13%;
 }
 
 .risponsive > #especificos{
@@ -716,7 +733,23 @@ text-align: center;
 	position: relative;
 	margin: 30px;
 	text-align: center;
+
 }
+#radio1,#radio2,#radio3,#radio4,#radio6,#radio8,#radio9,#radio10{
+	width: 100%;
+	position: relative;
+	margin-top: 31px;
+	text-align: center;
+}
+#radio5, #radio10{
+		width: 100%;
+	position: relative;
+	margin-top: 11px;
+	text-align: center;
+}
+
+
+
 .risponsive > #especificos > div > label >  img{
 	width: 80px;
 	height:72px;
@@ -823,3 +856,5 @@ text-align: center;
 .containers{
 	text-align: center;
 }
+
+
