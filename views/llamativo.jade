@@ -13,16 +13,17 @@ html(lang="es")
 					div(class="colorarriba" align='center')
 						.picture(style="margin-bottom:4px;")
 								a(href='/' )
-									img(src='/public/imagenes/img/logos-01.png')
+									img(src='/public/imagenes/img/logos-01.png' class="logop" id="logop" name="logop")
 								ul.nav.navbar-nav.navbar-right(style="padding-left: 40%")
 													li.dropdown
-														input.button(value='Contacto' data-type="zoomout")
+														input.button(value='Contacto' data-type="zoomout" readonly="readonly")
 													li.dropdown
-														input.button(value='Ingresar', data-type='zoomin')
+														input.buttons(value='Ingresar', data-type='zoomin' readonly="readonly")
 					section#banner
 						h2 LA OFICINA QUE QUIERES...
 						h2 LA OFICINA QUE TIENES
-						p Rápido, Facil y flexible 
+						p Rápido, Fácil y flexible 
+						a(onclick='openDialog();') Mostrar Popup
 						ul.actions
 							button(type="button" id="busss" class="busss" onclick="sibuss()") BUSCAR
 							button(type="button" id="enlis" class="enlis" onclick="nobus()")  PUBLICAR
@@ -30,13 +31,8 @@ html(lang="es")
 									div(id="nobus" class="nobus")
 										li.nobus
 											form(style='text-align: center;', action='/hosts', method='POST', label='')
-														input(placeholder="UBICACIÓN" type="search" id="mysearch" name="mysearch" list="datos" style='text-align: center; color:#333;')
+														input(placeholder="UBICACIÓN" type="search" id="mysearch" name="mysearch" list="datos" style='text-align: center; color:#333;' autocomplete="off")
 														datalist(id="datos" required)
-															option(value="Oficina Privada" ) 
-															option(value="Escritorio compartido" )
-															option(value="Escritorio dedicado" )
-															option(value="Auditorio")
-															option(value="sala de Juntas" )
 															option(value="Usaquen")
 															option(value="Chapinero")
 															option(value="Santa Fe")
@@ -63,8 +59,8 @@ html(lang="es")
 									div(id="sibus" class="sibus")
 										li.sibus
 											form(style='text-align: center;', action='/extencion', method='POST', label='')
-														input(placeholder="BUSCAR" type="search" id="mysearch" name="mysearch" autocomplete="off" list="datos" style='text-align: center; color:#333;')
-														datalist(id="datos" required)
+														input(placeholder="BUSCAR" type="search" id="mysearch" name="mysearch" autocomplete="off" list="datos" style='text-align: center; ')
+														datalist(id="datos")
 															option(value="Oficina Privada" ) 
 															option(value="Escritorio compartido" )
 															option(value="Escritorio dedicado" )
@@ -95,20 +91,20 @@ html(lang="es")
 															input.imputt(value='ENCONTRAR', type='submit')
 				div
 					.overlay-container
-						.window-container.zoomout
-							.sesions
+						.window-container.zoomout(style="z-index:105;")
+							.sesions(style="z-index:105;")
 								p(style="color:#fff;" id="creacu" ) Contacto
 									span(class="close") X
 								form(action="envio3", method="POST", id="for" class="for")
-												div(class="form-group" style="")
+												div
 													label(for="name") Nombre completo
-													input(type="text", name="name", placeholder="nombre", id="name", class"form-control")
+													input(type="text", name="name",  id="name", class"form-control" autocomplete="off")
 												div 
 													label(for="correo2") Correo
-													input(type="text", name="correo2", placeholder="Correo", id="correo2", class"form-control")
+													input(type="text", name="correo2",  id="correo2", class"form-control" autocomplete="off")
 												div 
 													label(for="tel") Telefono
-													input(type="text", name="tel", placeholder="Telefono", id="tel", class"form-control")
+													input(type="text", name="tel",  id="tel", class"form-control" autocomplete="off")
 												div 
 													label(for="asunto") Asunto
 													select(type="text", name="asunto", placehoder="", id="asunto", class"form-control") 
@@ -118,65 +114,66 @@ html(lang="es")
 														option(value=""  selected="" style="display:none;")  --Selecciona--
 												div 
 													label(for="mess") Mensaje
-													textarea(type="text", name="mess", placeholder="", id="mess", class"form-control" style="width:100%; height:100px; background-color:#E8E8E8;")
+													textarea(type="text", name="mess", id="mess", class"form-control" style=" max-width:98%; width:100%; max-height:150px; background-color:#E8E8E8;" autocomplete="off")
 												div 
 													input(type="submit" value="Enviar" id="send" clas="send")
-						.window-container.zoomin
+					.overlay-containers
+						.window-containers.zoomin
 							.sesions
 								p(style="color:#fff;" id="creacu" ) Ingresar
 									span(class="close") X
 								form(action="session", method="POST", id="for" class="for")
 									div(class="form-group" style="padding-top: 30px; ")
 										label(for="email") Correo
-										input(type="text", name="email", placeholder="Email", id="email", class"form-control")
+										input(type="text", name="email", id="email", class"form-control" autocomplete="off")
 									div 
 										label(for="password") Contraseña
-										input(type="password", name="password",placeholder="Contrasña", id="password" class"form-control" )
+										input(type="password", name="password" id="password" class"form-control"autocomplete="off" )
 									div 
-										input(type="submit" value="Ingresar" id="send" clas="send")
+										input(type="submit" value="Ingresar" id="send" clas="send" autocomplete="off")
 									div
 										p(style="padding-left: 25%") Nuevo en workey? 
-												input.rrs(value='Crea una cuenta' data-type="rrr")
+												input.rrs(value='Crea una cuenta' data-type="rrr" autocomplete="off")
 					.overlay-container2
 						.window-container2.rrr
 							.sesions
 								p(style="color:#fff;" id="creacu" ) INSCRIBIRSE
 									span(class="close") X
 								form(action="users", method="POST"  name="fors" id="fors" class="fors")
-									div(class="form-group")
+									div
 										label(for="username") Nombre Completo
-										input(type="text", name="username",placeholder="Dime tu nombre completo", id="username" class"form-control"  required)
+										input(type="text", name="username", id="username" class"form-control"  required)
 									div 
 										label(for="telefono") telefono
-										input(type="text", name="telefono",placeholder="Dime tu Telefono", id="telefono" class"form-control"  required)
+										input(type="text", name="telefono", id="telefono" class"form-control"  required)
 									div 
 										label(for="email") Correo
-										input(type="email", name="email", placeholder="Email", id="email", class"form-control" title="por el correo" required) 
+										input(type="email", name="email",  id="email", class"form-control" title="por el correo" required) 
 									div 
 										label(for="nit") Cedula/NIT
-										input(type="text", name="nit",placeholder="Dime tu nit o tu cc", id="nit" class"form-control",  required, onchange="val()")
+										input(type="text", name="nit", id="nit" class"form-control",  required, onchange="val()")
 									div 
 										label(for="password")  Contraseña
-										input(type="password", name="password",placeholder="Contraseña", id="password" class"form-control" required )
+										input(type="password", name="password", id="password" class"form-control" required )
 									div 
 										label(for="password") Confirma tu Contraseña
-										input(type="password", name="password_confirmation",placeholder="Confirma Contraseña", id="password" class"form-control" required)
+										input(type="password", name="password_confirmation", id="password" class"form-control" required)
 									div 
 										input(type="submit" value="INSCRIBIRSE" class="btn btn-info" id="send" clas="send")
 			footer
 						div
-							h2 Contacta a nueso equipó para mas información llamanos o escribenos
-							h2 Los precios son de referencia
+							h2 Contacta a nuestro equipo para más información llámanos o escríbenos.
+							h2 Los precios son de referencia.
 						div
-							p Tel: (57) 3155388863
+							p Tel: +(57) 3134301091
 							p Email:workeybogota@gmail.com
 						div
-							div
+							div(id="face" class="face" name="face")
 								a(href="https://www.facebook.com/WorkeyBogota/")
-									img(src="/public/imagenes/img/face.png" width="100px")
-							div
+									img(src="/public/imagenes/img/face.png" width="50px")
+							div(id="face" class="face" name="face")
 								a(href="https://www.linkedin.com/company/11280196/")
-									img(src="/public/imagenes/img/inkedin-icon.png" width="100px")
+									img(src="/public/imagenes/img/inkedin-icon.png" width="50px")
 	script(type='text/javascript', src='/public/js/jquery.min.v1.js')
 	script(type='text/javascript', src='/public/js/bootstrap.js')
 	script(type='text/javascript', src='/public/js/cambio.js')

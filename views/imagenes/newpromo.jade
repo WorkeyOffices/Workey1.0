@@ -12,9 +12,9 @@ html(lang="es")
 	body( style="overflow-x:hidden; overflow-y:scroll;")
 		header
 					div(class="colorarriba" align='center')
-						.picture(style="margin-bottom:4px;")
+						.picture()
 								a(href='/' )
-									img(src='/public/imagenes/img/logos-01.png')
+									img(class="logop" id="logop" name="logop" src='/public/imagenes/img/logos-01.png')
 								ul.nav.navbar-nav.navbar-right(style="padding-left: 30%")
 									li
 										input.button(value='Contacto' data-type="zoomout")
@@ -38,7 +38,7 @@ html(lang="es")
 	.divicion
 		.Contenedor(style="padding: 3%;")
 			div
-				p(style="margin:20px;     font-size: 20px;") hola #{user.username} vamos a publicar tu espacio de trabajo!
+				p(style="margin:20px; font-size: 20px;") hola #{user.username} vamos a publicar tu espacio de trabajo!
 				form(action="/app/imagenes" method="POST" enctype="multipart/form-data" )
 					div(id="formm" name="formm")
 						div(style="width: 100%; margin: 30px; display: flex;")
