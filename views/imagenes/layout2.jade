@@ -19,13 +19,15 @@ html(lang="es")
 						.picture(style="margin-bottom:4px;")
 								a(href='/' )
 									img(src='/public/imagenes/img/logos-01.png')
-								ul.nav.navbar-nav.navbar-right(style="padding-left: 40%")
+								ul.nav.navbar-nav.navbar-right(style="padding-left: 30%")
 									li
 										input.button(value='Contacto' data-type="zoomout")
 									li
 										input.button(value='Ingresar', data-type='zoomin' style="display:none;")
+									li
+										a.buttons(href="/iniciado/#{user.username}/#{user.id}" data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' style="border: none; padding: 1px 1px 1px 1px; margin-top: 29px; font-size: 17px; cursor: pointer; margin-left: 30px; text-decoration: none;") #{user.username}
 									li.dropdown
-										a.buttons(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' style="border: none; padding: 1px 1px 1px 1px; margin-top: 20px; cursor: pointer; margin-left: 30px; text-decoration: none;") Editar perfil
+										a.buttons(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' style="border: none; padding: 1px 1px 1px 1px; margin-top: 29px; font-size: 17px; cursor: pointer; margin-left: 30px; text-decoration: none;") Editar perfil
 											span.caret
 										ul.dropdown-menu
 											li

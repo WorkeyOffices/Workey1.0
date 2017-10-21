@@ -25,7 +25,7 @@ p,h1,h2,label,h3,li,input{
 a{
 color: #666;
 border: none;
-padding: 1px 1px 1px 1px;
+
 
 text-decoration-color: #666;
 cursor: pointer;
@@ -362,10 +362,10 @@ input.rrs {
 					padding: 3px;
 					margin: 0px 0px 0px 0px;
 				}
-				input#name, input#correo2, input#tel, input#mess  , input#asunto,select#asunto,input#username,input#telefono, input#nit, input#email, input#password{
+				input#name, input#correo2, input#tel, input#mess  , input#asunto,input#username,input#telefono, input#nit, input#email, input#password{
 					float: left;
 					background-color: #E8E8E8;
-					border:  1px solid #A2A2A2;
+
 					padding: 3px;
 					float: initial;
 					margin: 0px 0px 0px 0px;
@@ -375,7 +375,28 @@ input.rrs {
 					box-decoration-break: none;
 					box-shadow: none;
 				}
-	#datoses > div > input,select{
+				select#asunto{
+					float: left;
+					background-color: #E8E8E8;
+					padding: 3px;
+					float: initial;
+					margin: 0px 0px 0px 0px;
+					height: auto;
+					width: 48%;
+					font-size: 15px;
+					box-decoration-break: none;
+					box-shadow: none;	
+				}
+	select {
+			 border: 1px solid #ccc;
+			 background: URL("/public/imagenes/img/icon/flechita.png") no-repeat right center;
+			 -moz-appearance: none;
+			 -webkit-appearance: none;
+			 appearance: none;
+			  padding-right: 40px;
+
+ }
+	#datoses > div > input{
 					float: left;
 					background-color: #fff;
 					border:  1px solid #A2A2A2;
@@ -388,8 +409,17 @@ input.rrs {
 					box-decoration-break: none;
 					box-shadow: none;
 				}
-
-
+	#datoses > div > select{
+					float: left;
+					background-color: #fff;
+					float: initial;
+					margin: 0px 0px 0px 0px;
+					height: auto;
+					width: 44%;
+					font-size: 20px;
+					box-decoration-break: none;
+					box-shadow: none;
+				color: #999;}
 /*selector de busqueda*/
 #busss,#enlis{
 					background-color: #999;
@@ -405,11 +435,10 @@ input.rrs {
 					border-style: none;
 					border:  1px solid #fff;
 }
-
-#busss:hover,#enlis:hover,#busss:focus, #enlis:focus, #busss:active{
-					background-color: #FF3B63;
-					color: #fff;
+#busss.active,#enlis.active{
+	background-color: #FF3B63;
 }
+
 
 #banner {
     color: rgba(255, 255, 255, 0.75);
@@ -418,6 +447,7 @@ input.rrs {
 .colorarriba {
     background: #ffffff;
     height: 87px;
+    position: relative;
 
 }
 .picture {
@@ -425,7 +455,7 @@ input.rrs {
     display: flex;
     -webkit-box-shadow: 0px 10px 5px -4px rgba(153,153,153,1);
 -moz-box-shadow: 0px 10px 5px -4px rgba(153,153,153,1);
-box-shadow: 0px 10px 5px -4px rgba(153,153,153,1);
+box-shadow: 0px 10px 5px -4px rgba(0,0,0,0.3);
 
 }
 /*buscardor*/
@@ -872,7 +902,7 @@ text-align: center;
 	margin: auto;
 	display: inline;
 }
-#sear > div > input, select {
+#sear > div > input,  {
     width: 15%;
     margin: auto;
     display: inline;
@@ -886,6 +916,21 @@ text-align: center;
     font-size: 15px;
     box-decoration-break: none;
     box-shadow: none;
+}
+#sear > div > select {
+    width: 15%;
+    margin: auto;
+    display: inline;
+    float: left;
+    background-color: #fff;
+    border: 1px solid #A2A2A2;
+    padding: 3px;
+    float: initial;
+    margin: 0px 0px 0px 0px;
+    height: 30px;
+    font-size: 15px;
+    box-decoration-break: none;
+    box-shadow: none;	
 }
 .imputt {
     font-size: 20px;
@@ -914,4 +959,7 @@ text-align: center;
 }
 .containers{
 	text-align: center;
+}
+.glyphicon{
+	top: 0;
 }

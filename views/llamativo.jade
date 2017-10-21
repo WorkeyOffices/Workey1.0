@@ -23,9 +23,8 @@ html(lang="es")
 						h2 LA OFICINA QUE QUIERES...
 						h2 LA OFICINA QUE TIENES
 						p Rápido, Fácil y flexible 
-						a(onclick='openDialog();') Mostrar Popup
 						ul.actions
-							button(type="button" id="busss" class="busss" onclick="sibuss()") BUSCAR
+							button(type="button" id="busss" class="busss active" onclick="sibuss()") BUSCAR
 							button(type="button" id="enlis" class="enlis" onclick="nobus()")  PUBLICAR
 						section
 									div(id="nobus" class="nobus")
@@ -98,23 +97,23 @@ html(lang="es")
 								form(action="envio3", method="POST", id="for" class="for")
 												div
 													label(for="name") Nombre completo
-													input(type="text", name="name",  id="name", class"form-control" autocomplete="off")
+													input(type="text", name="name",  id="name",  autocomplete="off")
 												div 
 													label(for="correo2") Correo
-													input(type="text", name="correo2",  id="correo2", class"form-control" autocomplete="off")
+													input(type="text", name="correo2",  id="correo2",  autocomplete="off")
 												div 
 													label(for="tel") Telefono
-													input(type="text", name="tel",  id="tel", class"form-control" autocomplete="off")
+													input(type="text", name="tel",  id="tel",  autocomplete="off")
 												div 
 													label(for="asunto") Asunto
-													select(type="text", name="asunto", placehoder="", id="asunto", class"form-control") 
+													select(type="text", name="asunto", placehoder="", id="asunto", ) 
 														option(value="Busco"  selected=" Busco") Busco oficina  
 														option(value="Publicar"  selected="Publicar") Publicar oficina
 														option(value="Otro"  selected="Otro")  Otro
 														option(value=""  selected="" style="display:none;")  --Selecciona--
 												div 
 													label(for="mess") Mensaje
-													textarea(type="text", name="mess", id="mess", class"form-control" style=" max-width:98%; width:100%; max-height:150px; background-color:#E8E8E8;" autocomplete="off")
+													textarea(type="text", name="mess", id="mess", style=" max-width:98%; width:100%; max-height:150px; background-color:#E8E8E8;" autocomplete="off")
 												div 
 													input(type="submit" value="Enviar" id="send" clas="send")
 					.overlay-containers

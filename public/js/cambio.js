@@ -6,14 +6,24 @@ function sacamas(){
 document.getElementById('mas2').style.display = "none";
 document.getElementById('mas3').style.display = "none";
 document.getElementById('mas4').style.display = "none";}
+
+
+
 function nobus() {
 	document.getElementById('sibus').style.display = "none";
 	document.getElementById('nobus').style.display = "block";
+		$("#enlis").addClass("active")
+		$("#busss").removeClass("active")
 }
 function sibuss() {
 	document.getElementById('nobus').style.display = "none";
 	document.getElementById('sibus').style.display = "block";
+		$("#busss").addClass("active")
+		$("#enlis").removeClass("active")
 }
+
+
+
 function mas() {
 	document.getElementById('mas1').style.display = "block";
 }
