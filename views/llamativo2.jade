@@ -14,7 +14,7 @@ html(lang="es")
 					div(class="colorarriba" align='center')
 						.picture(style="margin-bottom:4px;")
 								a(href='/' )
-									img(src='/public/imagenes/img/logos-01.png')
+									img(src='/public/imagenes/img/logos-01.png' class="logop" id="logop" name="logop")
 								ul.nav.navbar-nav.navbar-right(style="padding-left: 40%")
 													li.dropdown
 														input.button(value='Contacto' data-type="zoomout" readonly="readonly")
@@ -29,38 +29,11 @@ html(lang="es")
 									div(id="sibus" class="sibus")
 										li.nobus
 											form(style='text-align: center;', action='/hosts', method='POST', label='')
-														input(placeholder="UBICACIÓN" type="search" id="mysearch" name="mysearch" list="datos" style='text-align: center; color:#333;')
-														datalist(id="datos" required)
-															option(value="Oficina Privada" ) 
-															option(value="Escritorio compartido" )
-															option(value="Escritorio dedicado" )
-															option(value="Auditorio")
-															option(value="sala de Juntas" )
-															option(value="Usaquen")
-															option(value="Chapinero")
-															option(value="Santa Fe")
-															option(value="San Cristóbal")
-															option(value="Usme")
-															option(value="Tunjuelito")
-															option(value="Bosa")
-															option(value="bogota")
-															option(value="Kennedy")
-															option(value="Fontibon")
-															option(value="Engativa")
-															option(value="Suba")
-															option(value="Barrios Unidos")
-															option(value="Teusaquillo")
-															option(value="Los Martires") 
-															option(value="Antonio Nariño")
-															option(value="Puente Aranda")
-															option(value="La Candelaria")
-															option(value="Rafael Uribe Uribe")
-															option(value="Ciudad Bolivar")
-															option(value="Sumapaz")
+														input(placeholder="BUSCAR" type="search" id="mysearch1" name="mysearch" autocomplete="off" list="datos2")
+														datalist(id="datos2" class="datos2")
 														span.glyphicon(style='')
 															input.imputt(value='   PUBLICAR', type='submit')
-									div(id="nobus" class="nobus")
-										li.sibus
+									div(id="nobus" class="nobus active2")
 				div
 					.overlay-container
 						.window-container.zoomout(style="z-index:105;")
@@ -70,25 +43,25 @@ html(lang="es")
 								form(action="envio3", method="POST", id="for" class="for")
 												div
 													label(for="name") Nombre completo
-													input(type="text", name="name",  id="name", class"form-control" autocomplete="off")
+													input(type="text", name="name",  id="name",  autocomplete="off")
 												div 
 													label(for="correo2") Correo
-													input(type="text", name="correo2",  id="correo2", class"form-control" autocomplete="off")
+													input(type="text", name="correo2",  id="correo2",  autocomplete="off")
 												div 
 													label(for="tel") Telefono
-													input(type="text", name="tel",  id="tel", class"form-control" autocomplete="off")
+													input(type="text", name="tel",  id="tel",  autocomplete="off")
 												div 
 													label(for="asunto") Asunto
-													select(type="text", name="asunto", placehoder="", id="asunto", class"form-control") 
+													select(type="text", name="asunto", placehoder="", id="asunto", ) 
 														option(value="Busco"  selected=" Busco") Busco oficina  
 														option(value="Publicar"  selected="Publicar") Publicar oficina
 														option(value="Otro"  selected="Otro")  Otro
 														option(value=""  selected="" style="display:none;")  --Selecciona--
 												div 
 													label(for="mess") Mensaje
-													textarea(type="text", name="mess", id="mess", class"form-control" style=" max-width:98%; width:100%; max-height:150px; background-color:#E8E8E8;" autocomplete="off")
+													textarea(type="text", name="mess", id="mess", style="	" autocomplete="off")
 												div 
-													input(type="submit" value="Enviar" id="send" clas="send")
+													input(type="submit" value="Enviar" id="send" class="send probe" )
 					.overlay-containers
 						.window-containers.zoomin
 							.sesions
@@ -114,22 +87,22 @@ html(lang="es")
 								form(action="users", method="POST"  name="fors" id="fors" class="fors")
 									div
 										label(for="username") Nombre Completo
-										input(type="text", name="username", id="username" class"form-control"  required)
+										input(type="text", name="username", id="username" class"form-control"  required autocomplete="off")
 									div 
 										label(for="telefono") telefono
-										input(type="text", name="telefono", id="telefono" class"form-control"  required)
+										input(type="text", name="telefono", id="telefono" class"form-control"  required autocomplete="off")
 									div 
 										label(for="email") Correo
-										input(type="email", name="email",  id="email", class"form-control" title="por el correo" required) 
+										input(type="email", name="email",  id="email", class"form-control" title="por el correo" required autocomplete="off") 
 									div 
 										label(for="nit") Cedula/NIT
-										input(type="text", name="nit", id="nit" class"form-control",  required, onchange="val()")
+										input(type="text", name="nit", id="nit" class"form-control",  required, autocomplete="off")
 									div 
 										label(for="password")  Contraseña
-										input(type="password", name="password", id="password" class"form-control" required )
+										input(type="password", name="password", id="password" class"form-control" required autocomplete="off")
 									div 
 										label(for="password") Confirma tu Contraseña
-										input(type="password", name="password_confirmation", id="password" class"form-control" required)
+										input(type="password", name="password_confirmation", id="password" class"form-control" required autocomplete="off")
 									div 
 										input(type="submit" value="INSCRIBIRSE" class="btn btn-info" id="send" clas="send")
 			footer

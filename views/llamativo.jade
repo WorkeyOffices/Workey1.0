@@ -27,65 +27,18 @@ html(lang="es")
 							button(type="button" id="busss" class="busss active" onclick="sibuss()") BUSCAR
 							button(type="button" id="enlis" class="enlis" onclick="nobus()")  PUBLICAR
 						section
-									div(id="nobus" class="nobus")
+									div(id="nobus" class="nobus active2")
 										li.nobus
-											form(style='text-align: center;', action='/hosts', method='POST', label='')
-														input(placeholder="UBICACIÓN" type="search" id="mysearch" name="mysearch" list="datos" style='text-align: center; color:#333;' autocomplete="off")
-														datalist(id="datos" required)
-															option(value="Usaquen")
-															option(value="Chapinero")
-															option(value="Santa Fe")
-															option(value="San Cristóbal")
-															option(value="Usme")
-															option(value="Tunjuelito")
-															option(value="Bosa")
-															option(value="bogota")
-															option(value="Kennedy")
-															option(value="Fontibon")
-															option(value="Engativa")
-															option(value="Suba")
-															option(value="Barrios Unidos")
-															option(value="Teusaquillo")
-															option(value="Los Martires") 
-															option(value="Antonio Nariño")
-															option(value="Puente Aranda")
-															option(value="La Candelaria")
-															option(value="Rafael Uribe Uribe")
-															option(value="Ciudad Bolivar")
-															option(value="Sumapaz")
+											form(style='text-align: left;', action='/hosts', method='POST', label='')
+														input(placeholder="UBICACIÓN" type="search" id="mysearch" name="mysearch" list="datos1" autocomplete="off")
+														datalist(id="datos1" class="datos1")
 														span.glyphicon(style='')
-															input.imputt(value='   PUBLICAR', type='submit')
+															input.imputt(value='PUBLICAR', type='submit')
 									div(id="sibus" class="sibus")
 										li.sibus
-											form(style='text-align: center;', action='/extencion', method='POST', label='')
-														input(placeholder="BUSCAR" type="search" id="mysearch" name="mysearch" autocomplete="off" list="datos" style='text-align: center; ')
-														datalist(id="datos")
-															option(value="Oficina Privada" ) 
-															option(value="Escritorio compartido" )
-															option(value="Escritorio dedicado" )
-															option(value="Auditorio")
-															option(value="ala de Juntas" )
-															option(value="Usaquén")
-															option(value="Chapinero")
-															option(value="Santa Fe")
-															option(value="San Cristóbal")
-															option(value="Usme")
-															option(value="Tunjuelito")
-															option(value="Bosa")
-															option(value="bogota")
-															option(value="Kennedy")
-															option(value="Fontibón")
-															option(value="Engativá")
-															option(value="Suba")
-															option(value="Barrios Unidos")
-															option(value="Teusaquillo")
-															option(value="Los Mártires") 
-															option(value="Antonio Nariño")
-															option(value="Puente Aranda")
-															option(value="La Candelaria")
-															option(value="Rafael Uribe Uribe 	")
-															option(value="Ciudad Bolívar")
-															option(value="Sumapaz")
+											form(style='text-align: left;', action='/extencion', method='POST', label='')
+														input(placeholder="BUSCAR" type="search" id="mysearch1" name="mysearch" autocomplete="off" list="datos2")
+														datalist(id="datos2" class="datos2")
 														span.glyphicon(style='')
 															input.imputt(value='ENCONTRAR', type='submit')
 				div
@@ -113,9 +66,9 @@ html(lang="es")
 														option(value=""  selected="" style="display:none;")  --Selecciona--
 												div 
 													label(for="mess") Mensaje
-													textarea(type="text", name="mess", id="mess", style=" max-width:98%; width:100%; max-height:150px; background-color:#E8E8E8;" autocomplete="off")
+													textarea(type="text", name="mess", id="mess", style="	" autocomplete="off")
 												div 
-													input(type="submit" value="Enviar" id="send" clas="send")
+													input(type="submit" value="Enviar" id="send" class="send probe" )
 					.overlay-containers
 						.window-containers.zoomin
 							.sesions
@@ -141,22 +94,22 @@ html(lang="es")
 								form(action="users", method="POST"  name="fors" id="fors" class="fors")
 									div
 										label(for="username") Nombre Completo
-										input(type="text", name="username", id="username" class"form-control"  required)
+										input(type="text", name="username", id="username" class"form-control"  required autocomplete="off")
 									div 
 										label(for="telefono") telefono
-										input(type="text", name="telefono", id="telefono" class"form-control"  required)
+										input(type="text", name="telefono", id="telefono" class"form-control"  required autocomplete="off")
 									div 
 										label(for="email") Correo
-										input(type="email", name="email",  id="email", class"form-control" title="por el correo" required) 
+										input(type="email", name="email",  id="email", class"form-control" title="por el correo" required autocomplete="off") 
 									div 
 										label(for="nit") Cedula/NIT
-										input(type="text", name="nit", id="nit" class"form-control",  required, onchange="val()")
+										input(type="text", name="nit", id="nit" class"form-control",  required, autocomplete="off")
 									div 
 										label(for="password")  Contraseña
-										input(type="password", name="password", id="password" class"form-control" required )
+										input(type="password", name="password", id="password" class"form-control" required autocomplete="off")
 									div 
 										label(for="password") Confirma tu Contraseña
-										input(type="password", name="password_confirmation", id="password" class"form-control" required)
+										input(type="password", name="password_confirmation", id="password" class"form-control" required autocomplete="off")
 									div 
 										input(type="submit" value="INSCRIBIRSE" class="btn btn-info" id="send" clas="send")
 			footer

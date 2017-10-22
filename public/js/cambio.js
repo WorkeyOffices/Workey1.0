@@ -1,23 +1,21 @@
-document.getElementById('nobus').style.display = "none";
-document.getElementById('sibus').style.display = "block";
+
 
 function sacamas(){
  document.getElementById('mas1').style.display = "none";
 document.getElementById('mas2').style.display = "none";
 document.getElementById('mas3').style.display = "none";
-document.getElementById('mas4').style.display = "none";}
-
-
+document.getElementById('mas4').style.display = "none";
+}
 
 function nobus() {
-	document.getElementById('sibus').style.display = "none";
-	document.getElementById('nobus').style.display = "block";
+		$("#nobus").removeClass("active2")
+		$("#sibus").addClass("active2")
 		$("#enlis").addClass("active")
 		$("#busss").removeClass("active")
 }
 function sibuss() {
-	document.getElementById('nobus').style.display = "none";
-	document.getElementById('sibus').style.display = "block";
+		$("#nobus").addClass("active2")
+		$("#sibus").removeClass("active2")
 		$("#busss").addClass("active")
 		$("#enlis").removeClass("active")
 }
@@ -37,13 +35,33 @@ function mas4() {
 	document.getElementById('mas4').style.display = "block";
 }
 
+$(document).ready(function() {
+	$('input[list="datos2"]').keydown(function(){
+		if ($(this).val().length >= 2 && $(this).val().length <= 2) {
+			$('datalist.datos2').html('<option value="Usaquén"></option>,<option value="Chapinero"></option>,<option value="Santa Fe"></option>,<option value="San Cristóbal"></option>,<option value="Usme"></option>,<option value="Tunjuelito"></option>,<option value="Bosa"></option>,<option value="bogota"></option>,<option value="Kennedy"></option>,<option value="Fontibón"></option>,<option value="Engativá"></option>,<option value="Suba"></option>,<option value="Barrios Unidos"></option>,<option value="Teusaquillo"></option>,<option value="Los Mártires"></option>,<option value="Antonio Nariño"></option>,<option value="Puente Aranda"></option>,<option value="La Candelaria"></option>,<option value="Rafael Uribe Uribe"></option>,<option value="Ciudad Bolívar"></option>,<option value="Sumapaz"></option>')
+			//console.log($(this))
+		}
+	});
+	$('input[list="datos1"]').keydown(function(){
+		if ($(this).val().length >= 2 && $(this).val().length <= 2) {
+			$('datalist.datos1').html('<option value="Usaquén"></option>,<option value="Chapinero"></option>,<option value="Santa Fe"></option>,<option value="San Cristóbal"></option>,<option value="Usme"></option>,<option value="Tunjuelito"></option>,<option value="Bosa"></option>,<option value="bogota"></option>,<option value="Kennedy"></option>,<option value="Fontibón"></option>,<option value="Engativá"></option>,<option value="Suba"></option>,<option value="Barrios Unidos"></option>,<option value="Teusaquillo"></option>,<option value="Los Mártires"></option>,<option value="Antonio Nariño"></option>,<option value="Puente Aranda"></option>,<option value="La Candelaria"></option>,<option value="Rafael Uribe Uribe"></option>,<option value="Ciudad Bolívar"></option>,<option value="Sumapaz"></option>')
+			//console.log($(this))
+		}
+	});
+});
+$(document).ready(function() {
+	$('.close').click(function(){
+			$('.for input[type="text"],input[type="password"],.for textarea').val("");
+			$('.fors input[type="text"],input[type="password"],input[type="email"],.for textarea').val("");
+	});
+});
+
 //rxjs angular
 // popup
 
 $(document).ready(function() {
 	
 	$('.button').click(function() {
-		
 		type = $(this).attr('data-type');
 		
 		$('.overlay-container').fadeIn(function() {
@@ -98,4 +116,16 @@ $(document).ready(function() {
 	$('.close').click(function() {
 		$('.overlay-container2').fadeOut().end().find('.window-container2').removeClass('window-container-visible2');	
 	});
+});
+
+$(document).ready(function() {
+
+ $(".probe").click(function(){
+ 	var data= $('.for input[type="text"],input[type="password"],.for textarea').val();
+ 	alert("Tus datos se han eviado")
+
+    /*$.ajax({url: "demo_test.txt", success: function(result){
+        $("#div1").html(result);
+    }});*/
+}); 
 });

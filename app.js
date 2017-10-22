@@ -19,7 +19,7 @@ var Contacto = require("./models/contacto");
 var app = express();
 var router = express.Router();
 var fs = require("fs");
-var nodemailer = require("nodemailer");
+const nodemailer = require('nodemailer');
 var url = require('url');
 var cookiSession = require("cookie-session");
 var redis = require("redis");
@@ -29,6 +29,7 @@ var path = require("path")
 var passport = require('passport');
 var Cropper = require('cropperjs')
 require('./passport')(passport);
+
 
 app.get("/", function(req,res,next){
 User.find(function(err,users){
@@ -107,7 +108,7 @@ app.use(sessionMiddleware);
 	resave: false,
 	saveUninitialized: false*/
 	//genid: function(req){	}
-app.use(formidable.parse({ keepExtensions: true }));
+app.use(formidable.parse({ keepExtensions: true, maxFieldsSize : 50 * 1024 * 1024 }));
 app.set("view engine","jade");
 app.all("/index",imagen_find);
 app.get("/area/*", function(req,res){
@@ -211,7 +212,6 @@ app.post("/envioclie",function(req,res){
 });
 
 app.post("/users", function(req,res){
-	if (req.body.subirinfo == true ) {
 		var user = new User({email: req.body.email,
 				password: req.body.password,
 				password_confirmation: req.body.password_confirmation,
@@ -219,16 +219,7 @@ app.post("/users", function(req,res){
 				telefono: req.body.telefono,
 				nit: req.body.nit,
 				subirinfo: true,
-				});}
-	else{
-		var user = new User({email: req.body.email,
-				password: req.body.password,
-				password_confirmation: req.body.password_confirmation,
-				username: req.body.username,
-				telefono: req.body.telefono,
-				nit: req.body.nit,
-				subirinfo: false,
-				});}
+				});
 
 	user.save().then(function(err){
 			User.findOne({email:req.body.email,password:req.body.password},function(err,user){
@@ -237,7 +228,7 @@ app.post("/users", function(req,res){
 					res.redirect("/");
 				}
 				else{
-				res.redirect("/app/imagenes/newpromo");
+				res.redirect("/index/bogota");
 						}
 					});
 	},function(err){	
@@ -339,29 +330,31 @@ app.post("/envio3",function(req,res){
 //coleccion areglo de coumentos que cumplen la condicion 
 //queri
 		var data = {
-			nombre: req.body.nombre,
-			email: req.body.email,
-			ciudad: req.body.ciudad,
-			tel: req.body.telefono,
-			mensaje: req.body.mensaje
+			nombre: req.body.name,
+			email: req.body.correo2,
+			ciudad: req.body.asunto,
+			tel: req.body.tel,
+			mensaje: req.body.mess
 		}
 		console.log(data)
-		var transporter = nodemailer.createTransport('smtps://antesde.com%40gmail.com:elbarbas01@smtp.gmail.com');
-		var mailOptions = {
-	    from: '"Antes-de.com 👥" ', // sender address
-	    to:"antesde.com@gmail.com", //req.body.correocliente, //, // list of receivers
+	var transporter = nodemailer.createTransport('smtps://antesde.com%40gmail.com:elbarbas01@smtp.gmail.com');
+
+	let mailOptions = {
+	    from: '"workey.com.co 👥" ', // sender address
+	    to:"cigarzon8@misena.edu.co", //req.body.correocliente, //, // list of receivers
 	    subject: req.body.asunto+'✔', // Subject line
 	    text: 'Tienes una duda de un usuario 🐴', // plaintext body
-	    html: '<b>Hola!</b> <b>El usuario  </b>'+ req.body.name +"<p>Tiene una duda repondela pronto:  </p>"+"</p>-nombre " + req.body.name +"</p>-telefono- " + req.body.tel +"<p>- correo" + req.body.correo2 +"<p>-mensaje del usuario" + req.body.mess,
+	    html: '<b>Hola!</b> <b>El usuario  </b>'+ req.body.name +"<p>Tiene una duda repondela pronto:  </p>"+"</p> - nombre " + req.body.name +"</p> - telefono - " + req.body.tel +"<p>- correo - " + req.body.correo2 +"<p> - mensaje del usuario " + req.body.mess,
 	};
+
+    // create reusable transporter object using the default SMTP transport
 		transporter.sendMail(mailOptions, function(error, info){
-			if(error){
-		       return console.log(error);
-		    }else{
-		    console.log('Message sent:'  );
-			res.redirect("/envio/ok");		    
-				}
+		    if(error){
+		        return console.log(error);
+		    }
+		    console.log('Message sent: ' + info.response);
 		});
+
 		res.redirect("/envio/ok");
 		
 });
@@ -583,53 +576,11 @@ app.post("/extencion", function(req,res){
 					else if (mysearch == "bogota") {
 						res.redirect("/index/"+mysearch)
 					}
-					else if (mysearch == "Bosa") {
-						res.redirect("/index/"+mysearch)
-					}
-					else if (mysearch == "Usaquen") {
-						res.redirect("/index/"+mysearch)
-					}	
-					else if (mysearch == "Chapinero") {
-						res.redirect("/index/"+mysearch)
-					}
-					else if (mysearch == "Fontibon") {
-						res.redirect("/index/"+mysearch)
-					}
-					else if (mysearch == "Engativa") {
-						res.redirect("/index/"+mysearch)
-					}
-					else if (mysearch == "Suba") {
-						res.redirect("/index/"+mysearch)
-					}
-					else if (mysearch == "Barrios Unidos") {
-						res.redirect("/index/"+mysearch)
-					}
-					else if (mysearch == "Los Martires") {
-						res.redirect("/index/"+mysearch)
-					}	
-					else if (mysearch == "Antonio Nariño") {
-						res.redirect("/index/"+mysearch)
-					}
-					else if (mysearch == "Puente Aranda") {
-						res.redirect("/index/"+mysearch)
-					}
-					else if (mysearch == "La Candelaria") {
-						res.redirect("/index/"+mysearch)
-					}
-					else if (mysearch == "Rafael Uribe Uribe") {
-						res.redirect("/index/"+mysearch)
-					}
-					else if (mysearch == "Ciudad Bolivar") {
-						res.redirect("/index/"+mysearch)
-					}	
-					else if (mysearch == "Sumapaz") {
-						res.redirect("/index/"+mysearch)
-					}
 					else if (mysearch == "") {
-						res.redirect("/")
+						res.redirect("/index/"+mysearch)
 					}
 					else {
-						res.redirect("/")
+						res.redirect("/index/"+mysearch)
 					}
 			}
 
