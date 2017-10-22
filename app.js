@@ -341,7 +341,7 @@ app.post("/envio3",function(req,res){
 
 	let mailOptions = {
 	    from: '"workey.com.co 👥" ', // sender address
-	    to:"cigarzon8@misena.edu.co", //req.body.correocliente, //, // list of receivers
+	    to:"workeybogota@gmail.com", //req.body.correocliente, //, // list of receivers
 	    subject: req.body.asunto+'✔', // Subject line
 	    text: 'Tienes una duda de un usuario 🐴', // plaintext body
 	    html: '<b>Hola!</b> <b>El usuario  </b>'+ req.body.name +"<p>Tiene una duda repondela pronto:  </p>"+"</p> - nombre " + req.body.name +"</p> - telefono - " + req.body.tel +"<p>- correo - " + req.body.correo2 +"<p> - mensaje del usuario " + req.body.mess,

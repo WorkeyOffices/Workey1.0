@@ -122,7 +122,7 @@ $(document).ready(function() {
 
  $(".probe").click(function(){
  	var data= $('.for input[type="text"],input[type="password"],.for textarea').val();
- 	alert("Tus datos se han eviado")
+ 	//alert("Tus datos se han eviado")
 
     /*$.ajax({url: "demo_test.txt", success: function(result){
         $("#div1").html(result);
