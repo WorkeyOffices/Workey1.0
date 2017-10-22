@@ -396,7 +396,7 @@ Imagen.find({})
 
 app.post("/filtross", function(req,res){
 	var data = {
-			buscain: req.body.buscain,
+			buscain: req.body.mysearch3,
 			tipoin: req.body.tipoin,
 			preriodin: req.body.preriodin,
 			rangoin: req.body.rangoin,
@@ -474,7 +474,7 @@ app.post("/filtross", function(req,res){
 				if (data.preriodin == '') {
 					if (data.rangoin == '') {
 //								res.redirect("/filtr/"+data.buscain+"/"+data.tipoin+"/"+data.preriodin+"/"+data.rangoin)
-						res.redirect("index/"+data.buscain+"/	"+data.tipoin)
+						res.redirect("index/"+data.buscain+"/"+data.tipoin)
 					}else {
 						res.redirect("index3/"+data.buscain+"/"+data.tipoin+"/"+data.rangoin)
 					}
