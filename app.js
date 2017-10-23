@@ -251,11 +251,11 @@ User.find(function(err,users){
 
 app.post("/session", function(req,res){
 	User.findOne({email:req.body.email,password:req.body.password},function(err,user){
-		req.session.user_id=user._id;
-		if (user.color == "") {
+		if (user == null) {
 			res.redirect("/");
 		}
 		else{
+			req.session.user_id=user._id;
 			res.redirect("/iniciado/"+user.username+"/"+user.id);
 		}
 	});
@@ -325,6 +325,12 @@ app.post("/buscabusca", function(req,res){
 	   			res.redirect("/busca/"+busca);
 });
 /*envio de contactenos antesde*/
+app.post('/endpoint', function(req, res){
+	var obj = {};
+	console.log('body: ' + JSON.stringify(req.body));
+	res.send(req.body);
+});
+
 
 app.post("/envio3",function(req,res){
 //coleccion areglo de coumentos que cumplen la condicion 
@@ -332,7 +338,7 @@ app.post("/envio3",function(req,res){
 		var data = {
 			nombre: req.body.name,
 			email: req.body.correo2,
-			ciudad: req.body.asunto,
+			asunto: req.body.asunto,
 			tel: req.body.tel,
 			mensaje: req.body.mess
 		}

@@ -28,13 +28,9 @@ p,h1,h2,label,h3,li,input,a{
 	font-size: 18px;
 }
 li >a {
-	font-family: 'Raleway', sans-serif;
+font-family: 'Raleway', sans-serif;
 border: none; 
-padding: 1px 1px 1px 1px; 
-margin-top: 20px; 
-cursor: pointer; 
-width: 110px; 
-margin-left: 30px; 
+
 text-decoration: none;
 }
 a{
@@ -73,7 +69,7 @@ input.rrs {
 		text-decoration-color: #666;
 		cursor: pointer;
 		background-color: #fff;
-		width: 120px;
+		width: 155px;
 		margin-left:30px;
 	}
 	
@@ -100,8 +96,22 @@ input.rrs {
 		margin-left:30px;
 		font-family: 'Raleway', sans-serif;
 	}
-	
-
+	.buttonss{
+		color: #666;
+		border: none;
+		padding: 1px 1px 1px 1px;
+		margin-top: 29px;
+		text-decoration-color: #666;
+		font-size: 17px;
+		cursor: pointer;
+		background-color: #fff;
+		width: 100px;
+		margin-left:30px;
+		font-family: 'Raleway', sans-serif;
+	}
+	a.buttonss:hover{
+		color: #666;
+	}
 	
 	.overlay-container{
 		display: none;
@@ -333,7 +343,7 @@ input.rrs {
 				}
 
 				/*boton de envio*/
-				#send, #upload-result1,#upload-result2,#upload-result,#upload-result3,#upload-result4,{
+				#send, #upload-result1,#upload-result2,#upload-result,#upload-result3,#upload-result4{
 					background-color: #ffda00;
 					color: #999;
 					padding: 3px;
@@ -350,7 +360,7 @@ input.rrs {
 					padding-right: 25px;
 					text-align: center;
 				}
-				#send2.send2{
+				#send{
 					background-color: #ffda00;
 					color: #999;
 					padding: 3px;
@@ -413,7 +423,7 @@ input.rrs {
 					box-shadow: none;
 				}
 				#mess{
-					 max-width:88%;
+					 max-width:99%;
 					 width: 100%;
 					 max-height:150px; 
 					 background-color:#E8E8E8;
@@ -529,7 +539,7 @@ div#sibus,div#nobus{
 }
 
 
-input#mysearch,input#mysearch1 {
+input#mysearch,input#mysearch1,input#Localidad {
 	border-style: none;
 	padding: 2px 50px 0px 0px;
 	margin: 0;
@@ -567,7 +577,9 @@ display: none;
 #mysearch1::-webkit-calendar-picker-indicator{
 display: none;
 }
-
+#Localidad::-webkit-calendar-picker-indicator{
+display: none;	
+}
 form > span {
     font-size: 20px;
     color: #fff;
@@ -593,7 +605,7 @@ form > span:hover , form > span:focus{
     margin: 10px;
     	font-family: 'Raleway', sans-serif;
 	font-weight: inherit;
-	font-size: 18px;
+	font-size: 17px;
 	 margin-top: 29px;
 	 width: 100%;
 	 text-decoration: none;
