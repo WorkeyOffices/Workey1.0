@@ -15,92 +15,20 @@ block contenido
 									div(class="ubicacion2")
 										if imagen.extension != "noesta"
 												img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-										if imagen.extension1 != "noesta"
-												img(src="/public/imagenes/#{imagen._id}s.#{imagen.extension1}")
-										if imagen.extension2 != "noesta"
-												img(src="/public/imagenes/#{imagen._id}t.#{imagen.extension2}")
-										if imagen.extension3 != "noesta"
-												img(src="/public/imagenes/#{imagen._id}u.#{imagen.extension3}")
-										if imagen.extension4 != "noesta"
-												img(src="/public/imagenes/#{imagen._id}v.#{imagen.extension4}")
-										div
+											div
 												a(href="/app/imagenes/#{imagen._id}/edit") Editar
 												a(href="/detalle/#{imagen._id}" class="ordenado")
 													p ver oficina
+				div(id="nobus" class="nobus")
+				div(id="sibus" class="sibus")
 				div
 					.overlay-container
-						.window-container.zoomout(style="z-index:105;")
-							.sesions(style="z-index:105;")
-								p(style="color:#fff;" id="creacu" ) Contacto
-									span(class="close") X
-								form(action="envio3", method="POST", id="for" class="for")
-												div
-													label(for="name") Nombre completo
-													input(type="text", name="name",  id="name", class"form-control" autocomplete="off")
-												div 
-													label(for="correo2") Correo
-													input(type="text", name="correo2",  id="correo2", class"form-control" autocomplete="off")
-												div 
-													label(for="tel") Telefono
-													input(type="text", name="tel",  id="tel", class"form-control" autocomplete="off")
-												div 
-													label(for="asunto") Asunto
-													select(type="text", name="asunto", placehoder="", id="asunto", class"form-control") 
-														option(value="Busco"  selected=" Busco") Busco oficina  
-														option(value="Publicar"  selected="Publicar") Publicar oficina
-														option(value="Otro"  selected="Otro")  Otro
-														option(value=""  selected="" style="display:none;")  --Selecciona--
-												div 
-													label(for="mess") Mensaje
-													textarea(type="text", name="mess", id="mess", class"form-control" style=" max-width:98%; width:100%; max-height:150px; background-color:#E8E8E8;" autocomplete="off")
-												div 
-													input(type="submit" value="Enviar" id="send" clas="send")
 					.overlay-containers
-						.window-containers.zoomin
-							.sesions
-								p(style="color:#fff;" id="creacu" ) Ingresar
-									span(class="close") X
-								form(action="session", method="POST", id="for" class="for")
-									div(class="form-group" style="padding-top: 30px; ")
-										label(for="email") Correo
-										input(type="text", name="email", id="email", class"form-control" autocomplete="off")
-									div 
-										label(for="password") Contraseña
-										input(type="password", name="password" id="password" class"form-control"autocomplete="off" )
-									div 
-										input(type="submit" value="Ingresar" id="send" clas="send" autocomplete="off")
-									div
-										p(style="padding-left: 25%") Nuevo en workey? 
-												input.rrs(value='Crea una cuenta' data-type="rrr" autocomplete="off")
 					.overlay-container2
-						.window-container2.rrr
-							.sesions
-								p(style="color:#fff;" id="creacu" ) INSCRIBIRSE
-									span(class="close") X
-								form(action="users", method="POST"  name="fors" id="fors" class="fors")
-									div
-										label(for="username") Nombre Completo
-										input(type="text", name="username", id="username" class"form-control"  required)
-									div 
-										label(for="telefono") telefono
-										input(type="text", name="telefono", id="telefono" class"form-control"  required)
-									div 
-										label(for="email") Correo
-										input(type="email", name="email",  id="email", class"form-control" title="por el correo" required) 
-									div 
-										label(for="nit") Cedula/NIT
-										input(type="text", name="nit", id="nit" class"form-control",  required, onchange="val()")
-									div 
-										label(for="password")  Contraseña
-										input(type="password", name="password", id="password" class"form-control" required )
-									div 
-										label(for="password") Confirma tu Contraseña
-										input(type="password", name="password_confirmation", id="password" class"form-control" required)
-									div 
-										input(type="submit" value="INSCRIBIRSE" class="btn btn-info" id="send" clas="send")
 		script(type='text/javascript', src='/public/js/jquery.min.v1.js')
 			script(type='text/javascript', src='/public/js/bootstrap.min.js')
 			script(src='/public/slick/slick.min.js', type='text/javascript', charset='utf-8')
+			script(src='/../public/js/cambio.js')
 			script(type='text/javascript').
 				$(document).on('ready', function() {
 				$('.one-time').slick({

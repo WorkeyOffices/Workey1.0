@@ -16,20 +16,22 @@ html(lang="es")
 	body( style="overflow-x:hidden; overflow-y:scroll;")
 		header
 					div(class="colorarriba" align='center')
-						.picture(style="margin-bottom:4px;")
+						.picture()
 								a(href='/' )
-									img(src='/public/imagenes/img/logos-01.png' class="logop" id="logop" name="logop")
+									img(class="logop" id="logop" name="logop" src='/public/imagenes/img/logos-01.png')
 								ul.nav.navbar-nav.navbar-right(style="padding-left: 30%")
+									li
+										a.buttonss(href="/index/bogota" style="" )  Buscar Espacio
 									li
 										input.button(value='Contacto' data-type="zoomout")
 									li
 										input.button(value='Ingresar', data-type='zoomin' style="display:none;")
-									li
-										a.buttons(href="/iniciado/#{user.username}/#{user.id}" data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' style="border: none; padding: 1px 1px 1px 1px; margin-top: 29px; font-size: 17px; cursor: pointer; margin-left: 30px; text-decoration: none;") #{user.username}
 									li.dropdown
-										a.buttons(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' style="border: none; padding: 1px 1px 1px 1px; margin-top: 29px; font-size: 17px; cursor: pointer; margin-left: 30px; text-decoration: none;") Editar perfil
+										a.buttonss(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') #{user.username}
 											span.caret
 										ul.dropdown-menu
+											li
+												a(href="/iniciado/#{user.username}/#{user.id}") Mis oficinas
 											li
 												a(href="/app/imagenes/newpromo") Agregar Oficinas
 											li

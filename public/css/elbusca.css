@@ -382,7 +382,7 @@ input.rrs {
 					color: #999;
 					padding: 3px;
 					float: initial;
-					margin: 10px 10px 10px 35%;
+					margin: 10px 10px 10px 0px;
 					height: 40px;
 					width: 250px;
 					font-size: 28px;
@@ -456,18 +456,20 @@ input.rrs {
 					padding: 3px;
 					float: initial;
 					margin: 0px 0px 0px 0px;
-					height: auto;
+					height: 30px;
 					width: 44%;
-					font-size: 20px;
+					font-size: 18px;
 					box-decoration-break: none;
 					box-shadow: none;
+					font-family: 'Raleway', sans-serif;
+				
 				}
 	#datoses > div > select{
 					float: left;
 					background-color: #fff;
 					float: initial;
 					margin: 0px 0px 0px 0px;
-					height: auto;
+					height: 30px;
 					width: 44%;
 					font-size: 20px;
 					box-decoration-break: none;
@@ -487,6 +489,29 @@ input.rrs {
 					box-shadow: none;
 					border-style: none;
 					border:  1px solid #fff;
+}
+/*botton cancelar*/
+#busssss{
+					background-color: #999;
+					color: #fff;
+					padding: 3px 60px 4px 60px;
+					float: initial;
+					margin: 10px 0px 10px 25%;
+					box-decoration-break: none;
+					box-shadow: none;
+					border-style: none;
+					float: initial;
+					height: 40px;
+					width: 250px;
+					font-size: 28px;
+					box-decoration-break: none;
+					box-shadow: none;
+					border-style: none;
+					text-transform: uppercase;
+					text-align: center;
+					font-family: 'Raleway', sans-serif;
+					font-weight: inherit;
+
 }
 #busss.active,#enlis.active{
 	background-color: #fa485d;
@@ -603,7 +628,7 @@ form > span:hover , form > span:focus{
     border: none;
     padding: 1px 1px 1px 1px;
     margin: 10px;
-    	font-family: 'Raleway', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	font-weight: inherit;
 	font-size: 17px;
 	 margin-top: 29px;
@@ -1065,4 +1090,20 @@ margin: 0.5px;
 }
 #datos{
 	width: 20%;
+}
+
+input.pass{
+	display: none;
+	color: #FF0051;
+}
+input.nopass{
+	display: inline;
+	color: #FF0051;
+	border: 1px solid #ccc;
+	background: URL("/public/imagenes/img/icon/del.png") no-repeat right center;
+    background-color: rgba(0, 0, 0, 0);
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	padding-right: 40px;
 }

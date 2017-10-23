@@ -17,15 +17,17 @@ html(lang="es")
 									img(class="logop" id="logop" name="logop" src='/public/imagenes/img/logos-01.png')
 								ul.nav.navbar-nav.navbar-right(style="padding-left: 30%")
 									li
+										a.buttonss(href="/index/bogota" style="" )  Buscar Espacio
+									li
 										input.button(value='Contacto' data-type="zoomout")
 									li
 										input.button(value='Ingresar', data-type='zoomin' style="display:none;")
-									li
-										a.buttonsss(href="/iniciado/#{user.username}/#{user.id}" , role='button',  aria-expanded='false') #{user.username}
 									li.dropdown
-										a.buttonss(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Editar perfil
+										a.buttonss(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') #{user.username}
 											span.caret
 										ul.dropdown-menu
+											li
+												a(href="/iniciado/#{user.username}/#{user.id}") Mis oficinas
 											li
 												a(href="/app/imagenes/newpromo") Agregar Oficinas
 											li
@@ -51,9 +53,8 @@ html(lang="es")
 								input(type="text", name="imgs13", placeholder="Titulo de la imagen ", id="imgs13", class"form-control" value="1" style="display:none;")
 								input(type="text", name="imgs14", placeholder="Titulo de la imagen ", id="imgs14", class"form-control" value="1" style="display:none;")
 							div.fotografias#Fotografias
-
 								div(style="width: 100%; ")
-											h3 Subir Fotografías
+											h2 Subir Fotografías
 								div(style="width: 50%;")
 									input#upload.upload(  value='', accept='image/*', type='file'  required onchange="cargaaa()" style="display:none;" )
 									label(for="upload")
@@ -79,11 +80,11 @@ html(lang="es")
 
 							div.datoses#datoses
 								div
-									h3 Datos del espacio
+									h2 Datos del espacio
 								div(id="noimage" class="noimage")
-									input(type="text", name="mysearch", placeholder="Ciudad/Localidad ", id="Localidad", value="" required list="datos1" autocomplete="off" )
+									input(type="text", name="mysearch", placeholder="Ciudad / Localidad", id="Localidad", value="" required list="datos1" autocomplete="off" )
 									datalist(id="datos1" class="datos1")
-									input(type="text", name="dir", placeholder="Direccion", id="dir", class"form-control" value=""  required autocomplete="off" style=" margin-left: 15px;" )
+									input(type="text", name="dir", placeholder="Dirección", id="dir", class"form-control" value=""  required autocomplete="off" style=" margin-left: 15px;" )
 								div(style="margin-top:7px;")
 									select(type="text", name="tipo", placeho der="es local ", id="tipo", class"form-control" style="width: 44%;" required autocomplete="off" )
 										option(value="privada" selected="Privadada") Oficina Privada
@@ -91,7 +92,7 @@ html(lang="es")
 										option(value="Dedicado" selected="Dedicado") Escitorio Dedicado
 										option(value="Auditorio" selected="Auditorio") Auditorio
 										option(value="Sala" selected="Sala") Sala de juntas
-										option(value="" selected="selected") -Tipo de espacio-
+										option(value="" selected="selected") Tipo de espacio
 								div(style="margin-top:7px; ")
 									select(type="text", name="preriodo", placeho der="es local ", id="preriodo", class"form-control" style="width: 44% ; " )
 										option(value="Hora" selected="Hora") Hora
@@ -99,8 +100,8 @@ html(lang="es")
 										option(value="Semana" selected="semana") Semana
 										option(value="Mes" selected="mes") Mes
 										option(value="Año" selected="ano") Año
-										option(value="" selected="selected") - periodo -
-									input(type="text", name="precio", placeholder="precio", id="precio", class"form-control" required autocomplete="off"  style="margin-left: 15px;")
+										option(value="" selected="selected") Período
+									input(type="text", name="precio", placeholder="Precio", id="precio", class"form-control"  autocomplete="off"  style="margin-left: 15px;")
 									a(id="adi" name="adi" onclick="mas()") + 
 
 								div(id="mas1" name="mas1" class="mas1" style="display:none; margin-top:7px;")
@@ -110,8 +111,8 @@ html(lang="es")
 										option(value="Semana" selected="semana") Semana
 										option(value="Mes" selected="mes") Mes
 										option(value="Año" selected="ano") Año
-										option(value="" selected="selected") - periodo -
-									input(type="text", name="precio1", placeholder="precio", id="precio1", class"form-control" required autocomplete="off" style="margin-left: 15px;" )
+										option(value="" selected="selected") Período
+									input(type="text", name="precio1", placeholder="Precio", id="precio1", class"form-control"  autocomplete="off" style="margin-left: 15px;" )
 									a(id="adi" name="adi" onclick="mas2()") + 
 								div(id="mas2" name="mas2" class="mas2" style="display:none; margin-top:7px;")
 									select(type="text", name="preriodo2", placeho der="es local ", id="preriodo2", class"form-control" style="width: 44%; " )
@@ -120,8 +121,8 @@ html(lang="es")
 										option(value="Semana" selected="semana") Semana
 										option(value="Mes" selected="mes") Mes
 										option(value="Año" selected="ano") Año
-										option(value="" selected="selected") - periodo -
-									input(type="text", name="precio2", placeholder="precio", id="precio2", class"form-control" autocomplete="off" style="margin-left: 15px;" )
+										option(value="" selected="selected") Período
+									input(type="text", name="precio2", placeholder="Precio", id="precio2", class"form-control" autocomplete="off" style="margin-left: 15px;" )
 									a(id="adi" name="adi" onclick="mas3()") + 
 								div(id="mas3" name="mas3" class="mas3" style="display:none; margin-top:7px;")
 									select(type="text", name="preriodo3", placeho der="es local ", id="preriodo3", class"form-control" style="width: 44%; " )
@@ -130,8 +131,8 @@ html(lang="es")
 										option(value="Semana" selected="semana") Semana
 										option(value="Mes" selected="mes") Mes
 										option(value="Año" selected="ano") Año
-										option(value="" selected="selected") - periodo -
-									input(type="text", name="precio3", placeholder="precio", id="precio3", class"form-control" autocomplete="off"  style=" margin-left: 15px;")
+										option(value="" selected="selected") Período
+									input(type="text", name="precio3", placeholder="Precio", id="precio3", class"form-control" autocomplete="off"  style=" margin-left: 15px;")
 									a(id="adi" name="adi" onclick="mas4()") + 
 								div(id="mas4" name="mas4" class="mas4" style="display:none; margin-top:7px;")
 									select(type="text", name="preriodo4", placeho der="es local ", id="preriodo4", class"form-control" style="width: 44%; " )
@@ -140,8 +141,8 @@ html(lang="es")
 										option(value="Semana" selected="semana") Semana
 										option(value="Mes" selected="mes") Mes
 										option(value="Año" selected="ano") Año
-										option(value="" selected="selected") - periodo -
-									input(type="text", name="precio4", placeholder="precio", id="precio4", class"form-control" autocomplete="off"  style ="margin-left: 15px;")
+										option(value="" selected="selected") Período
+									input(type="text", name="precio4", placeholder="Precio", id="precio4", class"form-control" autocomplete="off"  style ="margin-left: 15px;")
 						div
 							h2 Específicos
 						.risponsive
@@ -197,7 +198,7 @@ html(lang="es")
 										| Número de Personas
 									input(type="number", name="radio5", id="radio5" style="width: 70px; margin-top: -20px;" max="99")
 						.risponsive
-								textarea(type="text", rows="1" cols="1" name="dlugar", placeholder="Descripción del lugar", id="dlugar", class"form-control" value=""  required )
+								textarea(type="text", rows="1" cols="1" name="dlugar", placeholder="Descripción del lugar", id="dlugar", class"form-control" value=""  required style =" max-width: 100%; min-width: 100%; max-height: 100px;")
 						div
 							h2 Generales
 						div(style="width: 100%; margin: 30px; display: flex;")
@@ -226,13 +227,13 @@ html(lang="es")
 								div(style="margin: 7px;")
 									input(type="checkbox", name="radio19", id="radio19", class"form-control") 
 									label(for="radio19")  Bicicletero
+							div.fotografias#Fotografias(style="width: 50%;")
 								div(style="margin: 7px;")
 									input(type="checkbox", name="radio27", id="radio27", class"form-control") 
 									label(for="radio27")  Catering
-							div.fotografias#Fotografias(style="width: 50%;")
 								div(style="margin: 7px;")
 									input(type="checkbox", name="radio20", id="radio20", class"form-control") 
-									label(for="radio20")  Cafe
+									label(for="radio20")  Café
 								div(style="margin: 7px;")
 									input(type="checkbox", name="radio21", id="radio21", class"form-control") 
 									label(for="radio21")  Agua
@@ -251,10 +252,11 @@ html(lang="es")
 								div(style="margin: 7px;")
 									input(type="checkbox", name="radio26", id="radio26", class"form-control") 
 									label(for="radio26")  Bodega / Almacenamiento
-								div(style="margin: 7px;")
+								div(style="margin: 7px; width: 80%;")
 									input(type="text", name="radio16", id="radio16", class"form-control" autocomplete="off") 
 									label(for="radio16")  Horario de la oficina
 						div
+									a(href="/index/bogota" type="button" id="busssss" class="#busssss") Cancelar
 									input(type="submit" value="Publicar oficina" class="send3" style="width: auto; " name="subirimg" id="subirimg" )
 						div(class="ejpromocion" align="center")
 								div

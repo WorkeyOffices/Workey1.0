@@ -480,7 +480,7 @@ app.post("/filtross", function(req,res){
 				if (data.preriodin == '') {
 					if (data.rangoin == '') {
 //								res.redirect("/filtr/"+data.buscain+"/"+data.tipoin+"/"+data.preriodin+"/"+data.rangoin)
-						res.redirect("index/"+data.buscain+"/"+data.tipoin)
+						res.redirect("filtr2/"+data.buscain+"/"+data.tipoin)
 					}else {
 						res.redirect("index3/"+data.buscain+"/"+data.tipoin+"/"+data.rangoin)
 					}
@@ -520,6 +520,7 @@ app.get("/index3/*/*/*", function(req,res,next){
 })
 app.get("/filtr2/*/*", function(req,res,next){
 	var queryy = url.parse(req.url).pathname;
+		console.log(queryy)
 		queryy = queryy.split("/")
 	var filtro = queryy
 	console.log(filtro[2])
@@ -537,10 +538,9 @@ app.get("/filtr2/*/*", function(req,res,next){
 })
 app.get("/filtr/*/*/*/*", function(req,res,next){
 	var queryy = url.parse(req.url).pathname;
+		console.log(queryy)
 		queryy = queryy.split("/")
 	var filtro = queryy
-	console.log(filtro[2])
-
 	Imagen.find({})
 			.populate("creator")
 			.exec(function(err,imagenes){

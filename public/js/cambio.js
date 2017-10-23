@@ -35,6 +35,20 @@ function mas4() {
 	document.getElementById('mas4').style.display = "block";
 }
 
+$( document.body )
+  .ready(function() {
+    $( document.body ).append( $( "<div .ubicacion2>" ) );
+    var n = $( ".ubicacion2" ).length;
+ 	if (n==0) {
+	$('.nomestra').html('<div><p>Ups, no encontramos resúltados a tu busqueda </p></div><div><img src="/public/imagenes/img/icon/Iconos-04.png"></div><div><p>Intenta cambiando alguno de los filtros y volvamos a intentarlo</p></div><div><img src="/public/imagenes/img/icon/Iconos-05.png"></div>');	
+ 	}
+   
+   })
+  // Trigger the click to start
+			//$('.nomestra').html('<div><p>Ups, no encontramos resúltados a tu busqueda </p></div><div><img src="/public/imagenes/img/icon/Iconos-04.png"></div><div><p>Intenta cambiando alguno de los filtros y volvamos a intentarlo</p></div><div><img src="/public/imagenes/img/icon/Iconos-05.png"></div>');
+
+
+
 $(document).ready(function() {
 	$('input[list="datos2"]').keydown(function(){
 		if ($(this).val().length >= 2 && $(this).val().length <= 2) {
@@ -111,39 +125,7 @@ $(document).ready(function() {
             				$('#envok').html('<p style="color: #666;">Tus datos se enviaron con éxito!</p>')
                         }
                     });
-
-
-
 			 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			$('.close').click(function() {
 				$('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
 				$( ".window-container" ).remove();
@@ -179,6 +161,7 @@ $(document).ready(function() {
 		});
 	});
 });
+
 
 
 
