@@ -29,10 +29,10 @@ html(lang="es")
 									div(id="sibus" class="sibus")
 										li.nobus
 											form(style='text-align: center;', action='/hosts', method='POST', label='')
-														input(placeholder="Ubicación" type="search" id="mysearch1" name="mysearch" autocomplete="off" list="datos2")
+														input(placeholder="Ubicación" type="search" id="mysearch1" name="mysearch" autocomplete="off" list="datos2" )
 														datalist(id="datos2" class="datos2")
 														span.glyphicon(style='')
-															input.imputt(value='   PUBLICAR', type='submit')
+															input.imputt(value='PUBLICAR', type='submit')
 									div(id="nobus" class="nobus active2")
 				div
 					.overlay-container
@@ -41,13 +41,13 @@ html(lang="es")
 			footer
 						div
 							h2 Contacta a nuestro equipo para más información llámanos o escríbenos.
-							h2 Los precios son de referencia.
+							h2 Todos los precios están sujetos a cambios sin previo aviso
 						div
 							p Tel: +(57) 3134301091
 							p Email:workeybogota@gmail.com
-						div
+						div(style="padding-left: 5%;")
 							div(id="face" class="face" name="face")
-								a(href="https://www.facebook.com/WorkeyBogota/")
+								a(href="https://www.facebook.com/WorkeyOffice/?fref=ts")
 									img(src="/public/imagenes/img/face.png" width="50px")
 							div(id="face" class="face" name="face")
 								a(href="https://www.linkedin.com/company/11280196/")

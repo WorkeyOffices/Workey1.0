@@ -3,7 +3,7 @@ block contenido
 	section#encontrador
 		form(action='/filtross', method='POST', label='' style="text-align:center;"  id="sear" name="sear")
 			div
-				input(placeholder="UBICACIÓN" type="search" id="mysearch3" name="mysearch3" list="datos" autocomplete="off" value="#{filtro}")
+				input(placeholder="UBICACIÓN" type="search" id="mysearch3" name="mysearch3" list="datos" autocomplete="off" value="#{filtro}" tocomplete="off")
 				datalist.datos(id="datos")
 			div
 				select(type="text", name="tipoin", placeho der="es local ", id="tipoin", class"form-control")
@@ -35,34 +35,32 @@ block contenido
 			for imagen in imagenes
 				if imagen.Localidad == filtro
 								div(class="ubicacion2")
-										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 											p=imagen.dlugar
 											p="$"+imagen.precio1+"/"+imagen.preriodo1
 				else if imagen.tipo == filtro
 								div(class="ubicacion2")
-										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 											p=imagen.dlugar
 											p="$"+imagen.precio1+"/"+imagen.preriodo1
-									break
 				else if imagen.preriodo == filtro & imagen.preriodo1 == filtro & imagen.preriodo2 == filtro & imagen.preriodo3 == filtro 
 								div(class="ubicacion2")
-										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 											p=imagen.dlugar
 											p="$"+imagen.precio1+"/"+imagen.preriodo1
-									break
 				else if imagen.precio == filtro
 								div(class="ubicacion2")
-										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 											p=imagen.dlugar
 											p="$"+imagen.precio1+"/"+imagen.preriodo1
 				else if "bogota" == filtro
 								div(class="ubicacion2")
-										img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 											p=imagen.dlugar
 											p="$"+imagen.precio1+"/"+imagen.preriodo1
 			div(class="nomestra" id="nomestra" name="nomestra")

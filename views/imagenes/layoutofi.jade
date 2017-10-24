@@ -19,9 +19,11 @@ html(lang="es")
 						.picture(style="margin-bottom:4px;")
 								a(href='/' )
 									img(src='/public/imagenes/img/logos-01.png' class="logop" id="logop" name="logop")
-								ul.nav.navbar-nav.navbar-right(style="padding-left: 40%")
-													li.dropdown
+								ul.nav.navbar-nav.navbar-right(style="padding-left: 30%")
+													li
 														input.button(value='Contacto' data-type="zoomout")
 													li.dropdown
-														input.button(value='Ingresar', data-type='zoomin')
+														input.buttons(value='Ingresar', data-type='zoomin' readonly="readonly")
+													li
+														a.buttonss(href="/app/imagenes/newpromo" style="" )  Publica espacio
 block contenido 

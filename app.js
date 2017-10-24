@@ -153,64 +153,6 @@ contactos.save().then(function(us){
 });
 
 
-app.get("/1",function(req,res){
-	res.render("enviodecliente")
-})	
-
-
-
-app.post("/envioclie",function(req,res){
-//coleccion areglo de coumentos que cumplen la condicion 
-//queri
-		var data = {
-				email: req.body.email,
-				password: req.body.password,
-				password_confirmation: req.body.password_confirmation,
-				username: req.body.username,
-				dir: req.body.dir,
-				gremio: req.body.gremio,
-				imgtitulo: req.body.imgtitulo,
-				telefono: req.body.telefono,
-				empre: req.body.empre,
-				slogan: req.body.slogan,
-				color: req.body.color,
-				color1: req.body.color1,
-				color2: req.body.color2,
-				face: req.body.face,
-				twi: req.body.twi,
-				you: req.body.you,
-				departamento :req.body.departamento,
-				ciudad :req.body.ciudad,
-				estilo :req.body.estilo,
-				elegido :req.body.elegido,
-				insta: req.body.insta,
-				horariolv :req.body.horariolv,
-				horariosdf :req.body.horariosdf,
-				web: req.body.web,
-				web: req.body.observaciones,
-				vip: req.body.vip
-		}
-		console.log(data)
-		var transporter = nodemailer.createTransport('smtps://antesde.com%40gmail.com:elbarbas01@smtp.gmail.com');
-		var mailOptions = {
-	    from: '"Antes-de.com 👥" ', // sender address
-	    to:"antesde.com@gmail.com", //req.body.correocliente, //, // list of receivers
-	    subject: 'Un nuevo usuario ✔', // Subject line
-	    text: 'Tienes una duda de un usuario #{data} 🐴', // plaintext body
-	    html: '<b>Hola tines un nuevo cliente Antes-de.com el email es </b>'+ req.body.email +"<p>su password es   </p>" + req.body.password +"<p>su username es   </p>" + req.body.username +"<p>su direccion es   </p>"+ req.body.dir +"<p>su Gremio es   </p>"+ req.body.gremio +"<p>su imgtitulo es   </p>" + req.body.imgtitulo + "<p>su telefono es   </p>" + req.body.telefono + "<p>su empresa es   </p>" + req.body.empre+ "<p>su slogan es   </p>" + req.body.slogan + "<p>su color1 es   </p>" + req.body.color + "<p>su color2 es   </p>" + req.body.color1 + "<p>su color 3 es   </p>" + req.body.color2 + "<p>su telefono es   </p>" + req.body.telefono + "<p>su face es   </p>" + req.body.face + "<p>su twi es   </p>" + req.body.twi + "<p>su you es   </p>" + req.body.you + "<p>su departamento  es   </p>" + req.body.departamento + "<p>su ciudad es   </p>" + req.body.ciudad + "<p>su estilo es   </p>" + req.body.estilo + "<p>su elegido es   </p>" + req.body.elegido + "<p>su insta es   </p>" + req.body.insta + "<p>su horario es   </p>" + req.body.horariolv+"  "+req.body.horariosdf+ "<p>su vip es   </p>" + req.body.vip+ "<p>Observaciones   </p>"+ req.body.observaciones,
-	};
-		transporter.sendMail(mailOptions, function(error, info){
-			if(error){
-		       return console.log(error);
-		    }else{
-		    console.log('Message sent:'  );
-			res.redirect("/envio/ok");		    
-				}
-		});
-		res.redirect("/envio/ok");
-		
-});
-
 app.post("/users", function(req,res){
 		var user = new User({email: req.body.email,
 				password: req.body.password,
@@ -256,7 +198,7 @@ app.post("/session", function(req,res){
 		}
 		else{
 			req.session.user_id=user._id;
-			res.redirect("/iniciado/"+user.username+"/"+user.id);
+			res.redirect("/app/hosts");
 		}
 	});
 });
@@ -324,13 +266,6 @@ app.post("/buscabusca", function(req,res){
 	   var variableget = query.variableget;
 	   			res.redirect("/busca/"+busca);
 });
-/*envio de contactenos antesde*/
-app.post('/endpoint', function(req, res){
-	var obj = {};
-	console.log('body: ' + JSON.stringify(req.body));
-	res.send(req.body);
-});
-
 
 app.post("/envio3",function(req,res){
 //coleccion areglo de coumentos que cumplen la condicion 
@@ -360,26 +295,11 @@ app.post("/envio3",function(req,res){
 		    }
 		    console.log('Message sent: ' + info.response);
 		});
-
 		res.redirect("/envio/ok");
 		
 });
 app.get("/envio/ok",function(req,res){
 	res.render("enviamosdatos")
-});
-
-
-app.get("/ini", function(req,res,next){
-User.find(function(err,users){
-	Imagen.find({})
-		.populate("creator")
-		.exec(function(err,imagenes){
-			if(err) {console.log(err);
-			}else{
-					res.render("llamativo",{imagenes:imagenes, users:users});}
-		})
-	})
-
 });
 
 
@@ -594,45 +514,16 @@ app.post("/extencion", function(req,res){
 });
 
 
-
-app.get("/OPrivada/*", function(req,res,next){
-	var query = url.parse(req.url).pathname;
-		query = query.split("/").pop()
-	var filtro = query
-	console.log(filtro)
-	Imagen.find({})
-			.populate("creator")
-			.exec(function(err,imagenes){
-				if(err) {console.log(err);
-				}else{
-		User.findOne({},function(err,user){
-			res.render("homecomidas",{imagenes:imagenes, filtro:filtro, user:user});}
-			)
-			}
-		})
-})
-
 //recibe buscador de host
 app.post("/hosts", function(req,res){
 	busca = req.body.busca
 	console.log(busca)
 	   var query = url.parse(req.url,true).query;
 	   var variableget = query.variableget;
-	   			res.redirect("/Hosts");
+	   			res.redirect("/app/imagenes/newpromo");
 });
 //recibe buscador de hosts rediccionado a 
-app.get("/Hosts", function(req,res,next){
-User.find(function(err,users){
-	Imagen.find({})
-		.populate("creator")
-		.exec(function(err,imagenes){
-			if(err) {console.log(err);
-			}else{
-					res.render("llamativo2",{imagenes:imagenes, users:users});}
-		})
-	})
 
-});
 
 //informacion del publicador
 app.post("/creates", function(req,res){

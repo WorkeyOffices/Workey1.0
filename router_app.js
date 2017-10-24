@@ -303,7 +303,7 @@ router.post("/envio2",function(req,res){
 //queri
 
 	User.findOne({},(function(err,user){
-		console.log(req.body.name +"nombreeXD")
+		console.log(req.body.name +"nombree")
 		var data = {
 			nombre: req.body.name,
 			email: req.body.email,
@@ -324,9 +324,10 @@ router.post("/envio2",function(req,res){
 	    subject: 'Pedido ✔', // Subject line
 	    text: 'Tiene in pedido nuevo 🐴', // plaintext body
 	    html: '<b>Hola Worki </b>'+ res.locals.user.username +
-	    "<p>El usuario  " + res.locals.user.username +"<p> esta interesado en la oficina " +data.mensaje+"<p>, Comunicate con el </p>" +
-	    "<p> Los datos del usuario son</p>"+ "<p>Nombre"+ res.locals.user.username +"<p> telefono  "+res.locals.user.telefono+
-	    "<p> Correo  </p>" + res.locals.user.email + "<p></p>"+"<b>Datos de la oficina</b>"+"<p> Localidad  " + data.ciudad,
+	    "<p>El usuario  " + res.locals.user.username +"<p> esta interesado en la oficina " +data.mensaje+"<p>, Comunicate con el " +
+	    "<p>Datos del usuario: </p>"+ "<p>Nombre "+ res.locals.user.username +"<p> telefono  "+res.locals.user.telefono+
+	    "<p> Correo " + res.locals.user.email + "<p></p>"+"<b>Datos de la oficina</b>"+"<p> Localidad  " + data.ciudad
+	    +"<p> Precio "+ data.tel+" link de oficina "+data.mensaje ,
 	};
 		transporter.sendMail(mailOptions, function(error, info){
 			if(error){
@@ -508,7 +509,18 @@ router.get("/noproduc", function(req,res,next){
 
 });
 
+router.get("/Hosts", function(req,res,next){
+User.find(function(err,users){
+	Imagen.find({})
+		.populate("creator")
+		.exec(function(err,imagenes){
+			if(err) {console.log(err);
+			}else{
+					res.render("llamativo2",{imagenes:imagenes, users:users});}
+		})
+	})
 
+});
 
 //router.route("/envio ")
 module.exports = router;

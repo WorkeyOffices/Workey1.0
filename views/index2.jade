@@ -35,130 +35,130 @@ block contenido
 			for imagen in imagenes
 				if imagen.Localidad == filtro[2]
 					if imagen.tipo == filtro[3]
-						div(class="ubicacion2")
-							img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-							a(href="/detalle/#{imagen._id}" class="ordenado")
-								p=imagen.dlugar
-								p="$"+imagen.precio1+"/"+imagen.preriodo1
+								div(class="ubicacion2")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if imagen.preriodo == filtro[3] || imagen.preriodo1 == filtro[3] || imagen.preriodo2 == filtro[3] || imagen.preriodo3 == filtro[3] 
-						div(class="ubicacion2")
-							img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-							a(href="/detalle/#{imagen._id}" class="ordenado")
-								p=imagen.dlugar
-								p="$"+imagen.precio1+"/"+imagen.preriodo1
+								div(class="ubicacion2")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					if "0a5" == filtro[3]
 							if imagen.precio <= 500000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "5a10"
 							if imagen.precio >= 500000 && imagen.precio <= 1000000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "10a25"
 							if imagen.precio >= 1000000 && imagen.precio <= 2500000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "25a50"
 							if imagen.precio >= 2500000 && imagen.precio <= 5000000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "mas50"
 							if imagen.precio >= 5000000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 				else if imagen.tipo == filtro[2]
 					if imagen.preriodo == filtro[3] || imagen.preriodo1 == filtro[3] || imagen.preriodo2 == filtro || imagen.preriodo3 == filtro[3]
-						div(class="ubicacion2")
-							img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-							a(href="/detalle/#{imagen._id}" class="ordenado")
-								p=imagen.dlugar
-								p="$"+imagen.precio1+"/"+imagen.preriodo1
+								div(class="ubicacion2")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					if "0a5" == filtro[3]
 							if imagen.precio <= 500000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "5a10"
 							if imagen.precio >= 500000 && imagen.precio <= 1000000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "10a25"
 							if imagen.precio >= 1000000 && imagen.precio <= 2500000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "25a50"
 							if imagen.precio >= 2500000 && imagen.precio <= 5000000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "mas50"
 							if imagen.precio >= 5000000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 				else if imagen.preriodo == filtro[2] || imagen.preriodo1 == filtro[2] || imagen.preriodo2 == filtro[2] || imagen.preriodo3 == filtro[2] 
 					if "0a5" == filtro[3]
 							if imagen.precio <= 500000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "5a10"
 							if imagen.precio >= 500000 && imagen.precio <= 1000000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "10a25"
 							if imagen.precio >= 1000000 && imagen.precio <= 2500000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "25a50"
 							if imagen.precio >= 2500000 && imagen.precio <= 5000000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 					else if "mas50"
 							if imagen.precio >= 5000000
 								div(class="ubicacion2")
-									img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
-									a(href="/detalle/#{imagen._id}" class="ordenado")
-										p=imagen.dlugar
-										p="$"+imagen.precio1+"/"+imagen.preriodo1
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 			div(class="nomestra" id="nomestra" name="nomestra")
 			div(id="sibus" class="sibus")
 			div(id="nobus" class="nobus")
