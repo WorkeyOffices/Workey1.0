@@ -193,12 +193,16 @@ User.find(function(err,users){
 
 app.post("/session", function(req,res){
 	User.findOne({email:req.body.email,password:req.body.password},function(err,user){
+
 		if (user == null) {
-			res.redirect("/");
+				var obj = "2"
+				res.send(obj);
 		}
 		else{
 			req.session.user_id=user._id;
-			res.redirect("/app/hosts");
+			var obj = "/app/hosts"
+				res.send(obj);
+
 		}
 	});
 });
@@ -266,6 +270,12 @@ app.post("/buscabusca", function(req,res){
 	   var variableget = query.variableget;
 	   			res.redirect("/busca/"+busca);
 });
+app.post('/endpoint', function(req, res){
+	var obj = {};
+	console.log('body: ' + JSON.stringify(req.body));
+	res.send(obj);
+});
+
 
 app.post("/envio3",function(req,res){
 //coleccion areglo de coumentos que cumplen la condicion 
@@ -282,7 +292,7 @@ app.post("/envio3",function(req,res){
 
 	let mailOptions = {
 	    from: '"workey.com.co 👥" ', // sender address
-	    to:"workeybogota@gmail.com", //req.body.correocliente, //, // list of receivers
+	    to:"cigarzon8@misena.edu.co", //req.body.correocliente, //, // list of receivers
 	    subject: req.body.asunto+'✔', // Subject line
 	    text: 'Tienes una duda de un usuario 🐴', // plaintext body
 	    html: '<b>Hola!</b> <b>El usuario  </b>'+ req.body.name +"<p>Tiene una duda repondela pronto:  </p>"+"</p> - nombre " + req.body.name +"</p> - telefono - " + req.body.tel +"<p>- correo - " + req.body.correo2 +"<p> - mensaje del usuario " + req.body.mess,
@@ -295,7 +305,8 @@ app.post("/envio3",function(req,res){
 		    }
 		    console.log('Message sent: ' + info.response);
 		});
-		res.redirect("/envio/ok");
+	var obj = "2"
+	res.send(obj);
 		
 });
 app.get("/envio/ok",function(req,res){

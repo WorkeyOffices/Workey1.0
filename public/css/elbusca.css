@@ -485,7 +485,7 @@ input.rrs {
 				}
 				#fors{
 					background-color: #ffffff;
-
+					padding: 20px;
 				}
 
 				/*titulo*/
@@ -1202,4 +1202,14 @@ input.nopass{
 	-webkit-appearance: none;
 	appearance: none;
 	padding-right: 40px;
+}
+div.ubicacion2 > a.ordenado  > p{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+	width: 350px;
+	margin-left: 15px;
+}
+div.ubicacion2 > a.ordenado  > img{
+    width: 350px;
 }

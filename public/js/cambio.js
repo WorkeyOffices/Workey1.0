@@ -95,7 +95,7 @@ $(document).ready(function() {
 	$('.button').click(function() {
 		type = $(this).attr('data-type');
 		$('.overlay-container').fadeIn(function() {
-		$('div.overlay-container').html('<div style="z-index:1000;" class="window-container zoomout window-container-visible"><div style="z-index:1000;" class="sesions"><p style="color:#fff;" id="creacu">Contacto<span class="close">X</span></p><form action="envio3" method="POST" id="for" class="for"><div><label for="name">Nombre completo</label><input name="name" id="name" autocomplete="off" type="text"></div><div> <label for="correo2">Correo</label><input name="correo2" id="correo2" autocomplete="off" type="text"></div><div> <label for="tel">Teléfono</label><input name="tel" id="tel" autocomplete="off" type="text"></div><div> <label for="asunto">Asunto</label><select type="text" name="asunto" placehoder="" id="asunto"> <option value="Busco" selected=" Busco">Busco oficina  </option><option value="Publicar" selected="Publicar">Publicar oficina</option><option value="Otro" selected="Otro"> Otro</option><option value="" selected="" style="display:none;"> --Selecciona--</option></select></div><div> <label for="mess">Mensaje</label><textarea type="text" name="mess" id="mess" style="	" autocomplete="off"></textarea></div> <div id="envok" name="envok" class="envok" ></div> <div> <input value="Enviar" id="send" class="send probe" type="button"></div></form></div></div>');
+		$('div.overlay-container').html('<div style="z-index:1000;" class="window-container zoomout window-container-visible"><div style="z-index:1000;" class="sesions"><p style="color:#fff;" id="creacu">Contacto<span class="close">X</span></p><form action="envio3" method="POST" id="for" class="for"><div><label for="name">Nombre completo</label><input name="name" id="name" autocomplete="off" type="text"></div><div> <label for="correo2">Correo</label><input name="correo2" id="correo2" autocomplete="off" type="text"></div><div> <label for="tel">Teléfono</label><input name="tel" id="tel" autocomplete="off" type="text"></div><div> <label for="asunto">Asunto</label><select type="text" name="asunto" placehoder="" id="asunto"> <option value="Busco" selected=" Busco">Busco oficina  </option><option value="Publicar" selected="Publicar">Publicar oficina</option><option value="Otro" selected="Otro"> Otro</option><option value="" selected="" style="display:none;"> --Selecciona--</option></select></div><div> <label for="mess">Mensaje</label><textarea type="text" name="mess" id="mess" style="	" autocomplete="off"></textarea></div> <div id="envok1" name="envok1" class="envok1" ></div> <div> <input value="Enviar" id="send" class="send probe" type="button"></div></form></div></div>');
 			 $(".probe").click(function(e){
 			 	//var data= $('.for input[type="text"],input[type="password"],.for textarea').val();
 			 	//alert("Tus datos se han eviado")
@@ -120,15 +120,19 @@ $(document).ready(function() {
 					data.asunto = $("#asunto").val();
 					data.mess = $("#mess").val();
 					//= $('.for input[type="text"],input[type="password"],.for textarea').val();
-					console.log(data)
 					$.ajax({
 						type: 'POST',
 						data: JSON.stringify(data),
 				        contentType: 'application/json',
-                        url: 'http://localhost:5002/envio3',						
-                        success: function(data) {
-            				$('#envok').html('<p style="color: #666;">Tus datos se enviaron con éxito!</p>')
-                        }
+                        url: '/envio3',
+                          success: function(data){
+                          	console.log(JSON.stringify(data))
+                          	if (data == "2" ) {
+            					$('#envok1').html('<p style="color: #666;">Tus datos se enviaron con éxito!</p>')
+							}else{
+								alert("hay un error intentalo de nuevo")
+							}                       
+                         }
                     });
 			 });
 			$('.close').click(function() {
@@ -144,7 +148,27 @@ $(document).ready(function() {
 	$('.buttons').click(function() {
 		type = $(this).attr('data-type');
 		$('.overlay-containers').fadeIn(function() {
-				$('div.overlay-containers').html('<div style="z-index:1000;" class="window-containers zoomin window-container-visibles"><div style="z-index:1000;" class="sesions"><p style="color:#fff;" id="creacu">Ingresar<span class="close">X</span></p><form action="session" method="POST" id="for" class="for"><div style="padding-top: 30px; " class="form-group"><label for="email">Correo</label><input name="email" id="email" class"form-control="" autocomplete="off required" type="text"></div><div> <label for="password">Contraseña</label><input name="password" id="password" class"form-control"autocomplete="off" type="password" required></div><div> <input value="Ingresar" id="send" clas="send" autocomplete="off" type="submit"></div><div><p style="padding-left: 25%">Nuevo en workey? <input value="Crea una cuenta" data-type="rrr" autocomplete="off" class="rrs"></p></div></form></div></div>');
+				$('div.overlay-containers').html('<div style="z-index:1000;" class="window-containers zoomin window-container-visibles"><div style="z-index:1000;" class="sesions"><p style="color:#fff;" id="creacu">Ingresar<span class="close">X</span></p><form action="session" method="POST" id="for" class="for"><div style="padding-top: 30px; " class="form-group"><label for="email">Correo</label><input name="email" id="email" class"form-control="" autocomplete="off required" type="text"></div><div> <label for="password">Contraseña</label><input name="password" id="password" class"form-control"autocomplete="off" type="password" required></div><div> <input value="Ingresar" id="send" clas="send login" autocomplete="off" type="button"></div><div><p style="padding-left: 25%">Nuevo en workey? <input value="Crea una cuenta" data-type="rrr" autocomplete="off" class="rrs"></p></div></form></div></div>');
+				$('input#send').click(function(e){
+					        e.preventDefault();
+							var data={}
+							data.email = $("#email").val();
+							data.password = $("#password").val();
+							console.log(data)
+							$.ajax({
+								type: 'POST',
+								data: JSON.stringify(data),
+						        contentType: 'application/json',
+		                        url: '/session',
+		                          success: function(data){
+		                          	if (data == "2" ) {
+										alert("hay un error intentalo de nuevo")
+									}else{
+										window.location.href = data;
+									}                       
+						}
+                    });	
+				});
 			$('.close').click(function() {
 				$('.overlay-containers').fadeOut().end().find('.window-containers').removeClass('window-container-visibles');
 				$("." ).remove();
@@ -163,7 +187,9 @@ $(document).ready(function() {
 					
 				});
 			});
-			
+
+
+
 		});
 	});
 });
@@ -206,10 +232,10 @@ $(document).ready(function() {
 						type: 'POST',
 						data: JSON.stringify(data),
 				        contentType: 'application/json',
-                        url: 'http://localhost:5002/app/envio2',						
+                        url: '/app/envio2',						
                         success: function(data) {
 							$('#envok').addClass('envokss')
-            				$('#envok').html('<div id="for" class="for"> <div  style="z-index:1000;" class="window-container2 rrr window-container-visible2"><div style="z-index:1000;" class="sesions"><p style="color:#fff;" id="creacu">AGENDAMIENTO<span class="close">X</span><div id="for" class="for" stylw="background-color:#fff;"></p><h2 style="width: 100%;font-size: 30px; color: #666; margin-left: 20%;">¡GRACIAS POR ELEGIRNOS!</h2> <p style="font-size: 25px; width: 100%; color: #666; margin: 2%; padding: 2%;" >Nos comunicaremos contigo para concretar tu visita en el espacio de trabajo que te gustó</p><img style="width: 100%;" src="/public/imagenes/img/logos-02.png" id="logop" name="logop" class="logop"> </div></div></div>')
+            				$('#envok').html('<div id="for" class="for"> <div  style="z-index:1000;" class="window-container2 rrr window-container-visible2"><div style="z-index:1000;" class="sesions"><p style="color:#fff;" id="creacu">AGENDAMIENTO<span class="close">X</span><div id="for" class="for" stylw="background-color:#fff;"></p><h2 style="width: 100%;font-size: 30px; color: #666; margin-left: 20%;">¡GRACIAS POR ELEGIRNOS!</h2> <p style="font-size: 25px;width: 100%; color: #999;margin: 2%;padding-right: 15%;padding-left: 15%;;" >Nos comunicaremos contigo para concretar tu visita en el espacio de trabajo que te gustó</p><img style="width: 100%;" src="/public/imagenes/img/logos-02.png" id="logop" name="logop" class="logop"> </div></div></div>')
 							$('#envok').removeClass('envok')
 						    $('html,body').animate({
 						        scrollTop: $(".colorarriba").offset().top
