@@ -12,18 +12,22 @@ html(lang="es")
 	body( style="overflow-x:hidden; overflow-y:scroll;")
 		header
 					div(class="colorarriba" align='center')
-						.picture(style="margin-bottom:4px;")
+						.picture()
 								a(href='/' )
-									img(src='/public/imagenes/img/logos-01.png')
-								ul.nav.navbar-nav.navbar-right(style="padding-left: 40%")
+									img(class="logop" id="logop" name="logop" src='/public/imagenes/img/logos-01.png')
+								ul.nav.navbar-nav.navbar-right(style="padding-left: 30%")
+									li
+										a.buttonss(href="/index/bogota" style="" )  Buscar Espacio
 									li
 										input.button(value='Contacto' data-type="zoomout")
 									li
 										input.button(value='Ingresar', data-type='zoomin' style="display:none;")
 									li.dropdown
-										a.buttons(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' style="border: none; padding: 1px 1px 1px 1px; margin-top: 20px; cursor: pointer; margin-left: 30px; text-decoration: none;") Editar perfil
+										a.buttonss(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') #{user.username}
 											span.caret
 										ul.dropdown-menu
+											li
+												a(href="/iniciado/#{user.username}/#{user.id}") Mis oficinas
 											li
 												a(href="/app/imagenes/newpromo") Agregar Oficinas
 											li
@@ -34,11 +38,12 @@ html(lang="es")
 												a(href="/app/deslogear") Cerrar sesion
 	.divicion 
 	.divicion
-		.Contenedor
+		.Contenedor(style="padding: 3%;")
 			div
-				p(style="margin:20px;     font-size: 20px;") hola #{user.username} vamos a publicar tu espacio de trabajo!
-				form(action="/app/imagenes/#{imagen.id}?_method=PUT", method="POST")
-					input(type="hidden" value="PUT" name=(_method))
+				p(style="margin:20px; font-size: 20px;") ¡Hola 
+					font(color="#ffda00" style="font-weight: bold;") #{user.username} 
+					|, vamos a publicar tu espacio de trabajo!
+				form(action="/app/imagenes" method="POST" enctype="multipart/form-data" )
 					div(id="formm" name="formm")
 						div(style="width: 100%; margin: 30px; display: flex;")
 							div
@@ -48,30 +53,31 @@ html(lang="es")
 								input(type="text", name="imgs13", placeholder="Titulo de la imagen ", id="imgs13", class"form-control" value="1" style="display:none;")
 								input(type="text", name="imgs14", placeholder="Titulo de la imagen ", id="imgs14", class"form-control" value="1" style="display:none;")
 							div.fotografias#Fotografias
-								div
-									h3 Subir Fotografias
-								div
+								div(style="width: 100%; ")
+											h2 Subir Fotografías
+								div(style="width: 50%;")
 									input#upload.upload(  value='', accept='image/*', type='file'  required onchange="cargaaa()" style="display:none;" )
 									label(for="upload")
-										img(id="imgs" name="imgs" src="/public/imagenes/#{imagen._id}.#{imagen.extension}" style=" max-width: 200px;")
-								div.fotografias#Fotografias
-									div
-										input#upload1.upload1( value='', accept='image/*', type='file'  onchange="cargaaa1()" style="display:none;")
-										label(for="upload1")
-											if imagen.extension1 != "noesta"
-												img(id="imgs1" name="imgs1" src="/public/imagenes/#{imagen._id}s.#{imagen.extension1}" style=" max-width: 100px;")
-									div
-										input#upload2.upload2( value='', accept='image/*', type='file'  onchange="cargaaa2()" style="display:none;")
-										label(for="upload2")
-											img(id="imgs2" name="imgs2" src="/public/imagenes/#{imagen._id}t.#{imagen.extension2}" style=" max-width: 100px;")
-									div
-										input#upload3.upload3( value='', accept='image/*', type='file'  onchange="cargaaa3()" style="display:none;")
-										label(for="upload3")
-											img(id="imgs3" name="imgs3" src="/public/imagenes/#{imagen._id}u.#{imagen.extension3}" style=" max-width: 100px;")
-									div
-										input#upload4.upload4( value='', accept='image/*', type='file'  onchange="cargaaa4()" style="display:none;")
-										label(for="upload4")
-											img(id="imgs4" name="imgs4" src="/public/imagenes/#{imagen._id}v.#{imagen.extension4}" style=" max-width: 100px;")
+										img(id="imgs" name="imgs" src="/public/imagenes/#{imagen._id}.#{imagen.extension}" style=" max-width: 195px ; height: 169px;" )
+									div.fotografias#Fotografias(style="width: 50%; margin-left:50px;")
+											div(style="width: auto;")
+												input#upload1.upload1( value='', accept='image/*', type='file'  onchange="cargaaa1()" style="display:none;")
+												label(for="upload1")
+													img(id="imgs1" name="imgs1" src="/public/imagenes/#{imagen._id}s.#{imagen.extension1}" style=" width: 100px; height: 85px;")
+											div(style="width: auto;")
+												input#upload2.upload2( value='', accept='image/*', type='file'  onchange="cargaaa2()" style="display:none;")
+												label(for="upload2")
+													img(id="imgs2" name="imgs2" src="/public/imagenes/#{imagen._id}t.#{imagen.extension2}" style=" width: 100px; height: 85px;")
+									div.fotografias#Fotografias(style="width: 50%; margin-left:4px;")
+											div(style="width: auto;")
+												input#upload3.upload3( value='', accept='image/*', type='file'  onchange="cargaaa3()" style="display:none;")
+												label(for="upload3")
+													img(id="imgs3" name="imgs3" src="/public/imagenes/#{imagen._id}u.#{imagen.extension3}" style=" max-width: 100px; height: 85px;")
+											div(style="width: auto;")
+												input#upload4.upload4( value='', accept='image/*', type='file'  onchange="cargaaa4()" style="display:none;")
+												label(for="upload4")
+													img(id="imgs4" name="imgs4" src="/public/imagenes/#{imagen._id}v.#{imagen.extension4}" style=" max-width: 100px; height: 85px;")
+	
 							div.datoses#datoses
 								div
 									h3 Datos del espacio

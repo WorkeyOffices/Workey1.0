@@ -95,6 +95,7 @@ router.route("/imagenes/:id")
 						res.locals.imagen.radio24 = req.body.radio24,
 						res.locals.imagen.radio25 = req.body.radio25,
 						res.locals.imagen.radio26 = req.body.radio26,
+						res.locals.imagen.radio27 = req.body.radio27,
 						res.locals.imagen.tipo = req.body.tipo,
 						res.locals.imagen.dir = req.body.dir,
 	res.locals.imagen.save(function(err){
@@ -106,14 +107,35 @@ router.route("/imagenes/:id")
 	})
 })
 	.delete(function(req,res){
-		//Imagen.findById(req.params.id, function(err,imagen){ 
-			//se usa siepre que s tenga que hacer algo antes de borrar el archivo
-			//imagen.remove(); 
-		//}
+	var query = url.parse(req.url).pathname;
+		query = query.split("/").pop()
+	var filtro = query
+	console.log(query)
+
+		Imagen.findOne(req.params.id, function(err,imagen){ 
+			console.log(imagen)
+			 		console.log("aca va ")
+			 		fs.unlink("public/imagenes/"+imagen._id+'.'+imagen.extension,function(err){
+					console.log(err)
+					})
+			 		fs.unlink("public/imagenes/"+imagen._id+"s"+'.'+imagen.extension1,function(err){
+					console.log(err)
+					})
+			 		fs.unlink("public/imagenes/"+imagen._id+"t"+'.'+imagen.extension2,function(err){
+					console.log(err)
+					})
+			 		fs.unlink("public/imagenes/"+imagen._id+"u"+'.'+imagen.extension3,function(err){
+					console.log(err)
+					})
+			 		fs.unlink("public/imagenes/"+imagen._id+"v"+'.'+imagen.extension4,function(err){
+					console.log(err)
+					})
+		})
 		Imagen.findOneAndRemove({_id:req.params.id}, function(err){
 			 if (!err) {
 				res.redirect("/app/imagenes")
 			 }else {
+				 		console.log("aca no va ")
 			 	console.log(err);
 			 	res.redirect("/app/imagenes"+req.params.id);
 			 }
@@ -213,6 +235,7 @@ router.route("/imagenes")
 						radio24: req.body.radio24,
 						radio25: req.body.radio25,
 						radio26: req.body.radio26,
+						radio27: req.body.radio27,
 						tipo: req.body.tipo,
 						dir: req.body.dir,
 					}

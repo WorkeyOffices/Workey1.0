@@ -1026,18 +1026,25 @@ text-align: center;
 	margin: 30px;
 	text-align: center;
 
-}
-#radio1,#radio2,#radio3,#radio4,#radio6,#radio8,#radio10{
+} 
+#radio1,#radio2,#radio3,#radio4,#radio6,#radio8,#radio10,#radio9{
 	width: 100%;
 	position: relative;
 	margin-top: 37px;
 	text-align: center;
 }
-#radio5, #radio10,#radio9 {
-		width: 100%;
+#radio10,#radio10 {
+	width: 100%;
 	position: relative;
 	margin-top: 17px;
 	text-align: center;
+}
+#radio5{
+	width: 70%;
+	position: relative;
+	margin-top: 10px;
+	text-align: center;
+
 }
 
 

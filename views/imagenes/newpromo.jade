@@ -84,9 +84,9 @@ html(lang="es")
 								div(id="noimage" class="noimage")
 									input(type="text", name="mysearch", placeholder="Ciudad / Localidad", id="Localidad", value="" required list="datos1" autocomplete="off" )
 									datalist(id="datos1" class="datos1")
-									input(type="text", name="dir", placeholder="Dirección", id="dir", class"form-control" value=""  required autocomplete="off" style=" margin-left: 15px;" )
+									input(type="text", name="dir", placeholder="Dirección", id="dir",value=""  required autocomplete="off" style=" margin-left: 15px;" )
 								div(style="margin-top:7px;")
-									select(type="text", name="tipo", placeho der="es local ", id="tipo", class"form-control" style="width: 44%;" required autocomplete="off" )
+									select(type="text", name="tipo", placeho der="es local ", id="tipo",  style="width: 44%;" required autocomplete="off" )
 										option(value="privada" selected="Privadada") Oficina Privada
 										option(value="Compratido" selected="Compratido") Escritorio Compratido
 										option(value="Dedicado" selected="Dedicado") Escitorio Dedicado
@@ -196,7 +196,7 @@ html(lang="es")
 									label(for="radio5")
 										img(src="/public/imagenes/img/icon/Iconos-12.png")
 										| Número de Personas
-									input(type="number", name="radio5", id="radio5" style="width: 70px; margin-top: -20px;" max="99")
+									input(type="number", name="radio5", id="radio5"  max="99" min="1")
 						.risponsive
 								textarea(type="text", rows="1" cols="1" name="dlugar", placeholder="Descripción del lugar", id="dlugar", class"form-control" value=""  required style =" max-width: 100%; min-width: 100%; max-height: 100px;")
 						div

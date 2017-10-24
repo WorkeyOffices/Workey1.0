@@ -29,7 +29,7 @@ var path = require("path")
 var passport = require('passport');
 var Cropper = require('cropperjs')
 require('./passport')(passport);
-
+var emptyBuffer = Buffer(0);
 
 app.get("/", function(req,res,next){
 User.find(function(err,users){
@@ -193,16 +193,14 @@ User.find(function(err,users){
 
 app.post("/session", function(req,res){
 	User.findOne({email:req.body.email,password:req.body.password},function(err,user){
-
+		var ir = req.body.urls.pathname
 		if (user == null) {
 				var obj = "2"
 				res.send(obj);
 		}
 		else{
 			req.session.user_id=user._id;
-			var obj = "/app/hosts"
-				res.send(obj);
-
+				res.send(ir);
 		}
 	});
 });
@@ -454,7 +452,6 @@ app.get("/filtr2/*/*", function(req,res,next){
 		console.log(queryy)
 		queryy = queryy.split("/")
 	var filtro = queryy
-	console.log(filtro[2])
 
 	Imagen.find({})
 			.populate("creator")
@@ -468,10 +465,21 @@ app.get("/filtr2/*/*", function(req,res,next){
 		})
 })
 app.get("/filtr/*/*/*/*", function(req,res,next){
-	var queryy = url.parse(req.url).pathname;
-		console.log(queryy)
+	var queryy =  url.parse(req.url).pathname;
 		queryy = queryy.split("/")
 	var filtro = queryy
+	var filtros = queryy[1]
+	var filtros1 = queryy[2]
+	var filtros2 = queryy[3]
+	var filtros3 = queryy[4]
+	console.log(filtros)
+	console.log(filtros1)
+	console.log(filtros2)
+	console.log(filtros3)
+var dd = url.parse(req.url)
+
+console.log(dd.path)
+
 	Imagen.find({})
 			.populate("creator")
 			.exec(function(err,imagenes){

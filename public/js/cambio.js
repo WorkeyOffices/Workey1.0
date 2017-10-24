@@ -154,6 +154,7 @@ $(document).ready(function() {
 							var data={}
 							data.email = $("#email").val();
 							data.password = $("#password").val();
+							data.urls = window.location;
 							console.log(data)
 							$.ajax({
 								type: 'POST',
@@ -253,4 +254,29 @@ $(document).ready(function() {
 		});
 
 
-
+$(document).ready(function() {
+				$('input#send').click(function(e){
+					        e.preventDefault();
+							var data={}
+							data.email = $("#email").val();
+							data.password = $("#password").val();
+							data.urls = window.location;
+							console.log(data)
+							$.ajax({
+								type: 'POST',
+								data: JSON.stringify(data),
+						        contentType: 'application/json',
+		                        url: '/session',
+		                          success: function(data){
+		                          	if (data == "2" ) {
+										alert("hay un error intentalo de nuevo")
+									}else if( data = "signup"){
+											window.location.href = "/";
+										}
+									else{
+										window.location.href = data;	
+										}
+						}
+                    });	
+				});
+	});

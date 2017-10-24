@@ -63,6 +63,12 @@ block contenido
 											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
 											p=imagen.dlugar
 											p="$"+imagen.precio1+"/"+imagen.preriodo1
+				else if "" == filtro
+								div(class="ubicacion2")
+										a(href="/detalle/#{imagen._id}" class="ordenado")
+											img(src="/public/imagenes/#{imagen._id}.#{imagen.extension}")
+											p=imagen.dlugar
+											p="$"+imagen.precio1+"/"+imagen.preriodo1
 			div(class="nomestra" id="nomestra" name="nomestra")
 			div(id="sibus" class="sibus")
 			div(id="nobus" class="nobus")

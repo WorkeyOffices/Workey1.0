@@ -48,6 +48,7 @@ var img_schema = new Schema({
 	radio24:{type:String,require:true},
 	radio25:{type:String,require:true},
 	radio26:{type:String,require:true},
+	radio27:{type:String,require:true},
 	tipo:{type:String,require:true},
 	dir:{type:String,require:true},
 });
