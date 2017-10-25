@@ -62,7 +62,7 @@ a:visited{
 
 
 input.rrs {
-		color: #fa485d;
+		color: #ffda00;
 		border: none;
 		padding: 1px 1px 1px 1px;
 		margin-top: 0px;
@@ -75,7 +75,7 @@ input.rrs {
 	
 		input.rrs:hover {
 			color: #fff;
-			background-color: #fa485d;
+			background-color: #ffda00;
 		}
 		
 		input.rrs:active {

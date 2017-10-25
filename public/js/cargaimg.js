@@ -33,17 +33,6 @@ $(document).ready(function() {
 		$("#"+type).removeClass("nopass")
 	}
 })
-	$('input[id="precio"]').keydown(function(){
-		type = $(this).attr('id');
-	if ($(this).val().length == 0 | $(this).val().length == 1  ) {
-		$("#"+type).addClass("nopass")
-		$("#"+type).removeClass("pass")
-	}
-	else{
-		$("#"+type).removeClass("pass")
-		$("#"+type).removeClass("nopass")	
-	}
-})
 });
 
 $(document).ready(function() {
